@@ -11,13 +11,13 @@ abstract class Country implements Built<Country, CountryBuilder> {
   static Serializer<Country> get serializer => _$countrySerializer;
 
   @nullable
+  String get name;
+
+  @nullable
   String get code2;
 
   @nullable
   String get code3;
-
-  @nullable
-  String get name;
 
   @nullable
   String get capital;
