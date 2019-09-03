@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('should read all countries', () {
-    var countries = loadCountries();
+    var countries = getAllCountries();
 
     expect(250, countries.length);
   });
