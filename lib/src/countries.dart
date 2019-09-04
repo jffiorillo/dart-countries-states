@@ -45,15 +45,20 @@ Future<Iterable<Country>> getCountriesBy(
     (await getCountries(lang: lang, firstCache: firstCache))
         .where((country) => fun(country));
 
-nameFunc(String name) => (Country country) => country.name == name;
+nameFunc(String name) =>
+    (Country country) => country.name.toLowerCase() == name.toLowerCase();
 
-code2Func(String code2) => (Country country) => country.alpha2Code == code2;
+code2Func(String code2) => (Country country) =>
+    country.alpha2Code.toLowerCase() == code2.toLowerCase();
 
-code3Func(String code3) => (Country country) => country.alpha3Code == code3;
+code3Func(String code3) => (Country country) =>
+    country.alpha3Code.toLowerCase() == code3.toLowerCase();
 
-capitalFunc(String capital) => (Country country) => country.capital == capital;
+capitalFunc(String capital) =>
+    (Country country) => country.capital.toLowerCase() == capital.toLowerCase();
 
-regionFunc(String region) => (Country country) => country.region == region;
+regionFunc(String region) =>
+    (Country country) => country.region.toLowerCase() == region.toLowerCase();
 
 nameContainsFunc(String name) =>
     (Country country) => country.name.contains(name);

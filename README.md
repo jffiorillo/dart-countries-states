@@ -9,13 +9,15 @@ The format of the models can be found [here](lib/src/models/)
 
 ### Internationalization
 
-The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`
+The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`.
 
-```dart
-
+```dart2
+getCountryByName(name: 'kuwait', lang: 'fr')
 ```
 
 ### Example
+
+The examples can be found in [example](example/lib) and [test](test).
 
 ```json
 {

@@ -74,4 +74,10 @@ void main() {
 
     expect(countries.translations.length, 10);
   });
+
+  test('should provider in different languages', () async {
+    var countries = await getCountryByName(name: 'kuwait', lang: 'fr');
+
+    expect(countries.capital, 'Kuwait City');
+  });
 }
