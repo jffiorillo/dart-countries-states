@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'state.dart';
+part of currencies;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<State> _$stateSerializer = new _$StateSerializer();
+Serializer<Currencies> _$currenciesSerializer = new _$CurrenciesSerializer();
 
-class _$StateSerializer implements StructuredSerializer<State> {
+class _$CurrenciesSerializer implements StructuredSerializer<Currencies> {
   @override
-  final Iterable<Type> types = const [State, _$State];
+  final Iterable<Type> types = const [Currencies, _$Currencies];
   @override
-  final String wireName = 'State';
+  final String wireName = 'Currencies';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, State object,
+  Iterable<Object> serialize(Serializers serializers, Currencies object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.code != null) {
@@ -30,19 +30,19 @@ class _$StateSerializer implements StructuredSerializer<State> {
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
-    if (object.subdivision != null) {
+    if (object.symbol != null) {
       result
-        ..add('subdivision')
-        ..add(serializers.serialize(object.subdivision,
+        ..add('symbol')
+        ..add(serializers.serialize(object.symbol,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  State deserialize(Serializers serializers, Iterable<Object> serialized,
+  Currencies deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StateBuilder();
+    final result = new CurrenciesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -58,8 +58,8 @@ class _$StateSerializer implements StructuredSerializer<State> {
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'subdivision':
-          result.subdivision = serializers.deserialize(value,
+        case 'symbol':
+          result.symbol = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -69,53 +69,52 @@ class _$StateSerializer implements StructuredSerializer<State> {
   }
 }
 
-class _$State extends State {
+class _$Currencies extends Currencies {
   @override
   final String code;
   @override
   final String name;
   @override
-  final String subdivision;
+  final String symbol;
 
-  factory _$State([void Function(StateBuilder) updates]) =>
-      (new StateBuilder()..update(updates)).build();
+  factory _$Currencies([void Function(CurrenciesBuilder) updates]) =>
+      (new CurrenciesBuilder()..update(updates)).build();
 
-  _$State._({this.code, this.name, this.subdivision}) : super._();
+  _$Currencies._({this.code, this.name, this.symbol}) : super._();
 
   @override
-  State rebuild(void Function(StateBuilder) updates) =>
+  Currencies rebuild(void Function(CurrenciesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  StateBuilder toBuilder() => new StateBuilder()..replace(this);
+  CurrenciesBuilder toBuilder() => new CurrenciesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is State &&
+    return other is Currencies &&
         code == other.code &&
         name == other.name &&
-        subdivision == other.subdivision;
+        symbol == other.symbol;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, code.hashCode), name.hashCode), subdivision.hashCode));
+    return $jf($jc($jc($jc(0, code.hashCode), name.hashCode), symbol.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('State')
+    return (newBuiltValueToStringHelper('Currencies')
           ..add('code', code)
           ..add('name', name)
-          ..add('subdivision', subdivision))
+          ..add('symbol', symbol))
         .toString();
   }
 }
 
-class StateBuilder implements Builder<State, StateBuilder> {
-  _$State _$v;
+class CurrenciesBuilder implements Builder<Currencies, CurrenciesBuilder> {
+  _$Currencies _$v;
 
   String _code;
   String get code => _$this._code;
@@ -125,39 +124,39 @@ class StateBuilder implements Builder<State, StateBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  String _subdivision;
-  String get subdivision => _$this._subdivision;
-  set subdivision(String subdivision) => _$this._subdivision = subdivision;
+  String _symbol;
+  String get symbol => _$this._symbol;
+  set symbol(String symbol) => _$this._symbol = symbol;
 
-  StateBuilder();
+  CurrenciesBuilder();
 
-  StateBuilder get _$this {
+  CurrenciesBuilder get _$this {
     if (_$v != null) {
       _code = _$v.code;
       _name = _$v.name;
-      _subdivision = _$v.subdivision;
+      _symbol = _$v.symbol;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(State other) {
+  void replace(Currencies other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$State;
+    _$v = other as _$Currencies;
   }
 
   @override
-  void update(void Function(StateBuilder) updates) {
+  void update(void Function(CurrenciesBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$State build() {
+  _$Currencies build() {
     final _$result =
-        _$v ?? new _$State._(code: code, name: name, subdivision: subdivision);
+        _$v ?? new _$Currencies._(code: code, name: name, symbol: symbol);
     replace(_$result);
     return _$result;
   }

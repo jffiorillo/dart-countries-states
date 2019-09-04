@@ -1,63 +1,96 @@
 # dart_countries_states
 
 A Dart project that contains all the countries and states. The content is based on 
-[stefanbinder/countries-states](https://github.com/stefanbinder/countries-states) repository.
+[apilayer/restcountries](https://github.com/apilayer/restcountries) repository.
 
 ## Getting Started
 
-The format of the countries is the following:
+The format of the models can be found [here](lib/src/models/)
+
+### Internationalization
+
+The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`
 
 ```dart
-class Country {
-  @nullable String name; // Name of the country
-  @nullable String code2; // 2 letters Country code
-  @nullable String code3; // 3 letters Country code
-  @nullable String capital; // Name of the capital
-  @nullable String region; // the region/continent of the country, possible values: 
-  // ['', 'Asia', 'Europe', 'Africa', 'Oceania', 'Americas', 'Polar']
-  @nullable String subregion; // The subregion inside the region, possible values: 
-  // ['', 'Southern Asia','Northern Europe','Southern Europe','Northern Africa','Polynesia','Middle Africa','Caribbean','South America',
-  // 'Western Asia','Australia and New Zealand','Western Europe','Eastern Europe','Central','America','Western Africa','Northern America',
-  // 'Southern Africa','Eastern Africa','South-Eastern Asia','Eastern Asia','Melanesia,'Micronesia','Central Asia']
 
-  @nullable
-  BuiltList<State> states;
-}
-
-class State {
-  @nullable String code; // Code of the state , if any
-  @nullable String name; // Name of the state
-  @nullable String subdivision; // Possible values: [ null , 'province' , 'territory' , 'Autonomous region' , 'Municipality' , 'Province' ,
-    // 'Special administrative region' , 'Metropolitan region' , 'Union territory' , 'state' , 'federal territory' , 'federal district' , 'country' ,
-    // 'special municipality' , 'Island' , 'regional council' , 'special island authority' , 'unitary authority' , 'administrative region' ,
-    // 'administrative territory' , 'autonomous city' , 'autonomous district' , 'autonomous region' , 'republic' , 'autonomous city in North Africa' ,
-    // 'autonomous community' , 'London borough' , 'Nation' , 'city corporation' , 'council area' , 'district council area' , 'metropolitan district' ,
-    // 'two-tier county' , 'district' , 'outlying territory ]
-}
 ```
 
 ### Example
 
 ```json
 {
-  "code2": "CV",
-  "code3": "CPV",
-  "name": "Cape Verde",
-  "capital": "Praia",
-  "region": "Africa",
-  "subregion": "Western Africa",
-  "states": [
+  "name": "Bahrain",
+  "topLevelDomain": [
+    ".bh"
+  ],
+  "alpha2Code": "BH",
+  "alpha3Code": "BHR",
+  "callingCodes": [
+    "973"
+  ],
+  "capital": "Manama",
+  "altSpellings": [
+    "BH",
+    "Kingdom of Bahrain",
+    "Mamlakat al-Baḥrayn"
+  ],
+  "region": "Asia",
+  "subregion": "Western Asia",
+  "population": 1404900,
+  "latlng": [
+    26,
+    50.55
+  ],
+  "demonym": "Bahraini",
+  "area": 765,
+  "gini": null,
+  "timezones": [
+    "UTC+03:00"
+  ],
+  "borders": [],
+  "nativeName": "‏البحرين",
+  "numericCode": "048",
+  "currencies": [
     {
-      "code": "B",
-      "name": "Ilhas de Barlavento",
-      "subdivision": null
-    },
-    {
-      "code": "S",
-      "name": "Ilhas de Sotavento",
-      "subdivision": null
+      "code": "BHD",
+      "name": "Bahraini dinar",
+      "symbol": ".د.ب"
     }
-  ]
+  ],
+  "languages": [
+    {
+      "iso639_1": "ar",
+      "iso639_2": "ara",
+      "name": "Arabic",
+      "nativeName": "العربية"
+    }
+  ],
+  "translations": {
+    "de": "Bahrain",
+    "es": "Bahrein",
+    "fr": "Bahreïn",
+    "ja": "バーレーン",
+    "it": "Bahrein",
+    "br": "Bahrein",
+    "pt": "Barém",
+    "nl": "Bahrein",
+    "hr": "Bahrein",
+    "fa": "بحرین"
+  },
+  "flag": "https://restcountries.eu/data/bhr.svg",
+  "regionalBlocs": [
+    {
+      "acronym": "AL",
+      "name": "Arab League",
+      "otherAcronyms": [],
+      "otherNames": [
+        "جامعة الدول العربية",
+        "Jāmiʻat ad-Duwal al-ʻArabīyah",
+        "League of Arab States"
+      ]
+    }
+  ],
+  "cioc": "BRN"
 }
 ```
 
@@ -65,12 +98,14 @@ class State {
 
 ```$dart
 
-Country getCountryByName(String name)
-Country getCountryByCode2(String code2)
-Country getCountryByCode3(String code3)
-Country getCountryByCapital(String capital)
+Country getCountryByName(String name, ...)
+Country getCountryByCode2(String code2, ...)
+Country getCountryByCode3(String code3, ...)
+Country getCountryByCapital(String capital, ...)
 
-List<Country> getCountriesByCapital(String capital)
-List<Country> getCountriesByRegion(String region)
-List<Country> getCountriesBySubregion(String subregion)
+List<Country> getCountriesByCapital(String capital, ...)
+List<Country> getCountriesByRegion(String region, ...)
+List<Country> getCountriesBySubregion(String subregion, ...)
 ```
+
+Full list of available functions can be found [here](lib/src/countries.dart)
