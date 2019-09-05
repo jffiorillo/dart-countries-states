@@ -1,5 +1,9 @@
 #Changelog
 
+## [0.0.4] - 2019/09/05
+
+* Remove unnecessary lang in functions that don't use it
+
 ## [0.0.3] - 2019/09/05
 
 * Update functions to be case insensitive. 

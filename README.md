@@ -28,7 +28,7 @@ Full list of available functions can be found [here](lib/src/countries.dart)
 The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`.
 
 ```dart2
-getCountryByName(name: 'kuwait', lang: 'fr')
+getCountryByName(name: 'Koweït', lang: 'fr')
 ```
 
 ### Example
