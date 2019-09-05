@@ -10,8 +10,7 @@ import 'country.dart';
 
 part 'serializers.g.dart';
 
-@SerializersFor(
-    const [Country, Currencies, Languages, RegionalBlocs])
+@SerializersFor(const [Country, Currencies, Languages, RegionalBlocs])
 Serializers serializers = _$serializers;
 
 Serializers standardSerializers = (serializers.toBuilder()

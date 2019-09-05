@@ -6,7 +6,6 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dart_countries_states/src/models/serializers.dart';
 
-
 part 'currencies.g.dart';
 
 abstract class Currencies implements Built<Currencies, CurrenciesBuilder> {
@@ -14,13 +13,16 @@ abstract class Currencies implements Built<Currencies, CurrenciesBuilder> {
 
   factory Currencies([updates(CurrenciesBuilder b)]) = _$Currencies;
 
-  @nullable @BuiltValueField(wireName: 'code')
+  @nullable
+  @BuiltValueField(wireName: 'code')
   String get code;
 
-  @nullable @BuiltValueField(wireName: 'name')
+  @nullable
+  @BuiltValueField(wireName: 'name')
   String get name;
 
-  @nullable @BuiltValueField(wireName: 'symbol')
+  @nullable
+  @BuiltValueField(wireName: 'symbol')
   String get symbol;
 
   String toJson() {
