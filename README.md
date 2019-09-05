@@ -7,6 +7,22 @@ A Dart project that contains all the countries and states. The content is based 
 
 The format of the models can be found [here](lib/src/models/)
 
+### Utility functions
+
+```$dart
+
+Country getCountryByName(String name, ...)
+Country getCountryByCode2(String code2, ...)
+Country getCountryByCode3(String code3, ...)
+Country getCountryByCapital(String capital, ...)
+
+List<Country> getCountriesByCapital(String capital, ...)
+List<Country> getCountriesByRegion(String region, ...)
+List<Country> getCountriesBySubregion(String subregion, ...)
+```
+
+Full list of available functions can be found [here](lib/src/countries.dart)
+
 ### Internationalization
 
 The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`.
@@ -95,19 +111,3 @@ The examples can be found in [example](example/lib) and [test](test).
   "cioc": "BRN"
 }
 ```
-
-### Utility functions
-
-```$dart
-
-Country getCountryByName(String name, ...)
-Country getCountryByCode2(String code2, ...)
-Country getCountryByCode3(String code3, ...)
-Country getCountryByCapital(String capital, ...)
-
-List<Country> getCountriesByCapital(String capital, ...)
-List<Country> getCountriesByRegion(String region, ...)
-List<Country> getCountriesBySubregion(String subregion, ...)
-```
-
-Full list of available functions can be found [here](lib/src/countries.dart)
