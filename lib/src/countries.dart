@@ -60,23 +60,23 @@ capitalFunc(String capital) =>
 regionFunc(String region) =>
     (Country country) => country.region.toLowerCase() == region.toLowerCase();
 
-nameContainsFunc(String name) =>
-    (Country country) => country.name.contains(name);
+nameContainsFunc(String name) => (Country country) =>
+    country.name.toLowerCase().contains(name.toLowerCase());
 
-code2ContainsFunc(String code2) =>
-    (Country country) => country.alpha2Code.contains(code2);
+code2ContainsFunc(String code2) => (Country country) =>
+    country.alpha2Code.toLowerCase().contains(code2.toLowerCase());
 
-code3ContainsFunc(String code3) =>
-    (Country country) => country.alpha3Code.contains(code3);
+code3ContainsFunc(String code3) => (Country country) =>
+    country.alpha3Code.toLowerCase().contains(code3.toLowerCase());
 
-capitalContainsFunc(String capital) =>
-    (Country country) => country.capital.contains(capital);
+capitalContainsFunc(String capital) => (Country country) =>
+    country.capital.toLowerCase().contains(capital.toLowerCase());
 
-regionContainsFunc(String region) =>
-    (Country country) => country.region.contains(region);
+regionContainsFunc(String region) => (Country country) =>
+    country.region.toLowerCase().contains(region.toLowerCase());
 
-subregionFunc(String subregion) =>
-    (Country country) => country.subregion == subregion;
+subregionFunc(String subregion) => (Country country) =>
+    country.subregion.toLowerCase() == subregion.toLowerCase();
 
 Future<Country> getCountryByName(
         {String name, lang, firstCache: true, bool onErrorTryCache: false}) =>
