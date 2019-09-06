@@ -1,11 +1,14 @@
-import 'dart:collection';
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dart_countries_states/src/models/serializers.dart';
+
+import 'package:dart_countries_states/src/models/supported_languages.dart';
+import 'package:dart_countries_states/src/serializer/serializers.dart';
 import 'package:http/http.dart' as http;
 
+import 'models/alpha2_codes.dart';
+import 'models/alpha3_code.dart';
 import 'models/country.dart';
 
 const _endpointUrl = 'https://restcountries.eu/rest/v2/all';
@@ -47,16 +50,16 @@ class CountryProvider {
       (await getCountries(firstCache: firstCache))
           .where((country) => fun(country));
 
-  nameFunc({String name, String lang: 'en'}) =>
-      (Country country) => lang == null || lang == 'en'
+  nameFunc({String name, LanguageCode lang}) =>
+      (Country country) => lang == null
           ? country.name?.toLowerCase() == name.toLowerCase()
           : country.translations[lang]?.toLowerCase() == name.toLowerCase();
 
-  code2Func(String code2) => (Country country) =>
-      country.alpha2Code.toLowerCase() == code2.toLowerCase();
+  code2Func(Alpha2Code code2) =>
+      (Country country) => country.alpha2Code == code2;
 
-  code3Func(String code3) => (Country country) =>
-      country.alpha3Code.toLowerCase() == code3.toLowerCase();
+  code3Func(Alpha3Code code3) =>
+      (Country country) => country.alpha3Code == code3;
 
   capitalFunc(String capital) => (Country country) =>
       country.capital.toLowerCase() == capital.toLowerCase();
@@ -72,12 +75,6 @@ class CountryProvider {
                   ?.contains(name.toLowerCase()) ==
               true;
 
-  code2ContainsFunc(String code2) => (Country country) =>
-      country.alpha2Code.toLowerCase().contains(code2.toLowerCase());
-
-  code3ContainsFunc(String code3) => (Country country) =>
-      country.alpha3Code.toLowerCase().contains(code3.toLowerCase());
-
   capitalContainsFunc(String capital) => (Country country) =>
       country.capital.toLowerCase().contains(capital.toLowerCase());
 
@@ -88,21 +85,26 @@ class CountryProvider {
       country.subregion.toLowerCase() == subregion.toLowerCase();
 
   Future<Country> getCountryByName(
-          {String name, lang, firstCache: true, bool onErrorTryCache: false}) =>
+          {String name,
+          LanguageCode lang,
+          firstCache: true,
+          bool onErrorTryCache: false}) =>
       getCountryBy(
           fun: nameFunc(name: name, lang: lang),
           firstCache: firstCache,
           onErrorTryCache: onErrorTryCache);
 
   Future<Country> getCountryByCode2(
-          {String code2, firstCache: true, bool onErrorTryCache: false}) =>
+          {Alpha2Code code2, firstCache: true, bool onErrorTryCache: false}) =>
       getCountryBy(
           fun: code2Func(code2),
           firstCache: firstCache,
           onErrorTryCache: onErrorTryCache);
 
   Future<Country> getCountryByCode3(
-          {String code3, firstCache: true, bool onErrorTryCache: false}) =>
+          {Alpha3Code code3,
+          firstCache: true,
+          bool onErrorTryCache: false}) async =>
       getCountryBy(
           fun: code3Func(code3),
           firstCache: firstCache,
@@ -133,20 +135,6 @@ class CountryProvider {
           {String name, lang, firstCache: true, bool onErrorTryCache: false}) =>
       getCountriesBy(
           fun: nameContainsFunc(name: name, lang: lang),
-          firstCache: firstCache,
-          onErrorTryCache: onErrorTryCache);
-
-  Future<Iterable<Country>> getCountriesByCode2Contains(
-          {String code2, firstCache: true, bool onErrorTryCache: false}) =>
-      getCountriesBy(
-          fun: code2ContainsFunc(code2),
-          firstCache: firstCache,
-          onErrorTryCache: onErrorTryCache);
-
-  Future<Iterable<Country>> getCountriesByCode3Contains(
-          {String code3, firstCache: true, bool onErrorTryCache: false}) =>
-      getCountriesBy(
-          fun: code3ContainsFunc(code3),
           firstCache: firstCache,
           onErrorTryCache: onErrorTryCache);
 

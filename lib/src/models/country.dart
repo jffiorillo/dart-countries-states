@@ -5,11 +5,14 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dart_countries_states/src/models/regional_blocs.dart';
-import 'package:dart_countries_states/src/models/serializers.dart';
+import 'package:dart_countries_states/src/serializer/serializers.dart';
 
+import 'alpha2_codes.dart';
+import 'alpha3_code.dart';
 import 'currencies.dart';
 import 'languages.dart';
+import 'regional_blocs.dart';
+import 'supported_languages.dart';
 
 part 'country.g.dart';
 
@@ -21,8 +24,8 @@ abstract class Country implements Built<Country, CountryBuilder> {
   factory Country.manual({
     String name,
     BuiltList<String> topLevelDomain,
-    String alpha2Code,
-    String alpha3Code,
+    Alpha2Code alpha2Code,
+    Alpha3Code alpha3Code,
     BuiltList<String> callingCodes,
     String capital,
     BuiltList<String> altSpellings,
@@ -39,7 +42,7 @@ abstract class Country implements Built<Country, CountryBuilder> {
     String numericCode,
     BuiltList<Currencies> currencies,
     BuiltList<Languages> languages,
-    BuiltMap<String, String> translations,
+    BuiltMap<LanguageCode, String> translations,
     String flag,
     BuiltList<RegionalBlocs> regionalBlocs,
     String cioc,
@@ -81,11 +84,11 @@ abstract class Country implements Built<Country, CountryBuilder> {
 
   @nullable
   @BuiltValueField(wireName: 'alpha2Code')
-  String get alpha2Code;
+  Alpha2Code get alpha2Code;
 
   @nullable
   @BuiltValueField(wireName: 'alpha3Code')
-  String get alpha3Code;
+  Alpha3Code get alpha3Code;
 
   @nullable
   @BuiltValueField(wireName: 'callingCodes')
@@ -153,7 +156,7 @@ abstract class Country implements Built<Country, CountryBuilder> {
 
   @nullable
   @BuiltValueField(wireName: 'translations')
-  BuiltMap<String, String> get translations;
+  BuiltMap<LanguageCode, String> get translations;
 
   @nullable
   @BuiltValueField(wireName: 'flag')

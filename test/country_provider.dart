@@ -1,5 +1,7 @@
 import 'package:dart_countries_states/src/country_provider.dart';
+import 'package:dart_countries_states/src/models/alpha2_codes.dart';
 import 'package:dart_countries_states/src/models/country.dart';
+import 'package:dart_countries_states/src/models/supported_languages.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -34,7 +36,7 @@ void main() {
   test('should provide country when requested by Name', () async {
     final country = await countryProvider.getCountryByName(name: 'Australia');
 
-    expect(country.alpha2Code, 'AU');
+    expect(country.alpha2Code, Alpha2Code.AU);
   });
 
   test('should provide country when requested by Region', () async {
@@ -86,8 +88,8 @@ void main() {
   });
 
   test('should provider in different languages', () async {
-    var countries =
-        await countryProvider.getCountryByName(name: 'Koweït', lang: 'fr');
+    var countries = await countryProvider.getCountryByName(
+        name: 'Koweït', lang: LanguageCode.fr);
 
     expect(countries.capital, 'Kuwait City');
   });

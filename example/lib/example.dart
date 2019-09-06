@@ -1,6 +1,7 @@
-import 'package:dart_countries_states/src/countries.dart';
+import 'package:dart_countries_states/src/country_provider.dart';
 
-var countries = getCountries();
+final countryProvider = CountryProvider();
+var countries = countryProvider.getCountries();
 
 // When looking for an specific country
-var country = getCountryByName(name: "United States");
+var country = countryProvider.getCountryByName(name: "United States");

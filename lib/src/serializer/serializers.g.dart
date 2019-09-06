@@ -7,8 +7,11 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(Alpha2Code.serializer)
+      ..add(Alpha3Code.serializer)
       ..add(Country.serializer)
       ..add(Currencies.serializer)
+      ..add(LanguageCode.serializer)
       ..add(Languages.serializer)
       ..add(RegionalBlocs.serializer)
       ..addBuilderFactory(
@@ -42,9 +45,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(Languages)]),
           () => new ListBuilder<Languages>())
       ..addBuilderFactory(
-          const FullType(
-              BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          const FullType(BuiltMap,
+              const [const FullType(LanguageCode), const FullType(String)]),
+          () => new MapBuilder<LanguageCode, String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RegionalBlocs)]),
           () => new ListBuilder<RegionalBlocs>()))

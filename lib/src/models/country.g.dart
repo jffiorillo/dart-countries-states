@@ -35,13 +35,13 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
       result
         ..add('alpha2Code')
         ..add(serializers.serialize(object.alpha2Code,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(Alpha2Code)));
     }
     if (object.alpha3Code != null) {
       result
         ..add('alpha3Code')
         ..add(serializers.serialize(object.alpha3Code,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(Alpha3Code)));
     }
     if (object.callingCodes != null) {
       result
@@ -151,7 +151,7 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
         ..add('translations')
         ..add(serializers.serialize(object.translations,
             specifiedType: const FullType(BuiltMap,
-                const [const FullType(String), const FullType(String)])));
+                const [const FullType(LanguageCode), const FullType(String)])));
     }
     if (object.flag != null) {
       result
@@ -198,11 +198,11 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'alpha2Code':
           result.alpha2Code = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(Alpha2Code)) as Alpha2Code;
           break;
         case 'alpha3Code':
           result.alpha3Code = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(Alpha3Code)) as Alpha3Code;
           break;
         case 'callingCodes':
           result.callingCodes.replace(serializers.deserialize(value,
@@ -285,7 +285,7 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
         case 'translations':
           result.translations.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, const [
-                const FullType(String),
+                const FullType(LanguageCode),
                 const FullType(String)
               ])) as BuiltMap<dynamic, dynamic>);
           break;
@@ -316,9 +316,9 @@ class _$Country extends Country {
   @override
   final BuiltList<String> topLevelDomain;
   @override
-  final String alpha2Code;
+  final Alpha2Code alpha2Code;
   @override
-  final String alpha3Code;
+  final Alpha3Code alpha3Code;
   @override
   final BuiltList<String> callingCodes;
   @override
@@ -352,7 +352,7 @@ class _$Country extends Country {
   @override
   final BuiltList<Languages> languages;
   @override
-  final BuiltMap<String, String> translations;
+  final BuiltMap<LanguageCode, String> translations;
   @override
   final String flag;
   @override
@@ -513,13 +513,13 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   set topLevelDomain(ListBuilder<String> topLevelDomain) =>
       _$this._topLevelDomain = topLevelDomain;
 
-  String _alpha2Code;
-  String get alpha2Code => _$this._alpha2Code;
-  set alpha2Code(String alpha2Code) => _$this._alpha2Code = alpha2Code;
+  Alpha2Code _alpha2Code;
+  Alpha2Code get alpha2Code => _$this._alpha2Code;
+  set alpha2Code(Alpha2Code alpha2Code) => _$this._alpha2Code = alpha2Code;
 
-  String _alpha3Code;
-  String get alpha3Code => _$this._alpha3Code;
-  set alpha3Code(String alpha3Code) => _$this._alpha3Code = alpha3Code;
+  Alpha3Code _alpha3Code;
+  Alpha3Code get alpha3Code => _$this._alpha3Code;
+  set alpha3Code(Alpha3Code alpha3Code) => _$this._alpha3Code = alpha3Code;
 
   ListBuilder<String> _callingCodes;
   ListBuilder<String> get callingCodes =>
@@ -596,10 +596,10 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   set languages(ListBuilder<Languages> languages) =>
       _$this._languages = languages;
 
-  MapBuilder<String, String> _translations;
-  MapBuilder<String, String> get translations =>
-      _$this._translations ??= new MapBuilder<String, String>();
-  set translations(MapBuilder<String, String> translations) =>
+  MapBuilder<LanguageCode, String> _translations;
+  MapBuilder<LanguageCode, String> get translations =>
+      _$this._translations ??= new MapBuilder<LanguageCode, String>();
+  set translations(MapBuilder<LanguageCode, String> translations) =>
       _$this._translations = translations;
 
   String _flag;

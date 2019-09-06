@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dart_countries_states/src/models/serializers.dart';
+import 'package:dart_countries_states/src/serializer/serializers.dart';
 
 part 'regional_blocs.g.dart';
 
