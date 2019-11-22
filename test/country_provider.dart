@@ -1,7 +1,7 @@
-import 'package:dart_countries_states/src/country_provider.dart';
-import 'package:dart_countries_states/src/models/alpha2_codes.dart';
-import 'package:dart_countries_states/src/models/country.dart';
-import 'package:dart_countries_states/src/models/supported_languages.dart';
+import 'package:dart_countries_states/country_provider.dart';
+import 'package:dart_countries_states/models/alpha2_codes.dart';
+import 'package:dart_countries_states/models/country.dart';
+import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

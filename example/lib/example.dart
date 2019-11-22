@@ -1,4 +1,4 @@
-import 'package:dart_countries_states/src/country_provider.dart';
+import 'package:dart_countries_states/country_provider.dart';
 
 final countryProvider = CountryProvider();
 var countries = countryProvider.getCountries();

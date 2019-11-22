@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
-import 'package:dart_countries_states/src/models/supported_languages.dart';
+import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:dart_countries_states/src/serializer/serializers.dart';
 import 'package:http/http.dart' as http;
 
