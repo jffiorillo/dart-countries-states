@@ -1,5 +1,10 @@
 #Changelog
 
+## [0.0.6] - 2019/11/22
+
+*  Add Barcelona Streets. 
+*  Move public classes to lib/.
+
 ## [0.0.5] - 2019/09/05
 
 *  Add alpha2Code, alpha3Code and LanguageCode enums.
