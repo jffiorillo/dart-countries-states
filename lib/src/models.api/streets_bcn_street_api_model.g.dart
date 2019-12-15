@@ -30,10 +30,10 @@ class _$StreetsBcnStreetApiModelSerializer
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(String)));
     }
-    if (object.value != null) {
+    if (object.name != null) {
       result
         ..add('Value')
-        ..add(serializers.serialize(object.value,
+        ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.description != null) {
@@ -62,7 +62,7 @@ class _$StreetsBcnStreetApiModelSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'Value':
-          result.value = serializers.deserialize(value,
+          result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'Descripcio':
@@ -80,7 +80,7 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
   @override
   final String id;
   @override
-  final String value;
+  final String name;
   @override
   final String description;
 
@@ -88,7 +88,7 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
           [void Function(StreetsBcnStreetApiModelBuilder) updates]) =>
       (new StreetsBcnStreetApiModelBuilder()..update(updates)).build();
 
-  _$StreetsBcnStreetApiModel._({this.id, this.value, this.description})
+  _$StreetsBcnStreetApiModel._({this.id, this.name, this.description})
       : super._();
 
   @override
@@ -105,21 +105,21 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
     if (identical(other, this)) return true;
     return other is StreetsBcnStreetApiModel &&
         id == other.id &&
-        value == other.value &&
+        name == other.name &&
         description == other.description;
   }
 
   @override
   int get hashCode {
     return $jf(
-        $jc($jc($jc(0, id.hashCode), value.hashCode), description.hashCode));
+        $jc($jc($jc(0, id.hashCode), name.hashCode), description.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('StreetsBcnStreetApiModel')
           ..add('id', id)
-          ..add('value', value)
+          ..add('name', name)
           ..add('description', description))
         .toString();
   }
@@ -134,9 +134,9 @@ class StreetsBcnStreetApiModelBuilder
   String get id => _$this._id;
   set id(String id) => _$this._id = id;
 
-  String _value;
-  String get value => _$this._value;
-  set value(String value) => _$this._value = value;
+  String _name;
+  String get name => _$this._name;
+  set name(String name) => _$this._name = name;
 
   String _description;
   String get description => _$this._description;
@@ -147,7 +147,7 @@ class StreetsBcnStreetApiModelBuilder
   StreetsBcnStreetApiModelBuilder get _$this {
     if (_$v != null) {
       _id = _$v.id;
-      _value = _$v.value;
+      _name = _$v.name;
       _description = _$v.description;
       _$v = null;
     }
@@ -171,7 +171,7 @@ class StreetsBcnStreetApiModelBuilder
   _$StreetsBcnStreetApiModel build() {
     final _$result = _$v ??
         new _$StreetsBcnStreetApiModel._(
-            id: id, value: value, description: description);
+            id: id, name: name, description: description);
     replace(_$result);
     return _$result;
   }
