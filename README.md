@@ -5,7 +5,7 @@ A Dart project that contains all the countries and states. The content is based 
 
 ## Getting Started
 
-The format of the models can be found [here](lib/models/country.dart)
+The format of the models can be found [here](lib/models)
 
 ### Utility functions
 
