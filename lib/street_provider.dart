@@ -15,8 +15,9 @@ class StreetProvider {
   Future<List<StreetInfo>> getStreetsByName(
       {String name, LanguageCode languageCode: LanguageCode.es}) async {
     assert(languageCode != null);
-    var response = await UserAgentClient(http.Client())
-        .post(_bcnRootUrl + languageCode.name.toUpperCase(), body: 'q=$name');
+    var response = await UserAgentClient(http.Client()).post(
+        Uri.parse(_bcnRootUrl + languageCode.name.toUpperCase()),
+        body: 'q=$name');
     if (response.statusCode == 200) {
       print("Response: ${response.body}");
       final StreetsBcnResponseApiModel streets =

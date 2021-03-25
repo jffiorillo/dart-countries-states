@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
-
 import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:dart_countries_states/src/serializer/serializers.dart';
 import 'package:http/http.dart' as http;
@@ -19,7 +18,7 @@ class CountryProvider {
   Future<BuiltList<Country>> getCountries(
       {onErrorTryCache: false, firstCache: false}) async {
     if (firstCache && cacheIsNotEmpty) return Future.value(_cache);
-    var response = await http.get(_endpointUrl);
+    var response = await http.get(Uri.parse(_endpointUrl));
     if (response.statusCode == 200) {
       var countries = standardSerializers.deserialize(jsonDecode(response.body),
           specifiedType: FullType(BuiltList, [FullType(Country)]));
@@ -40,8 +39,13 @@ class CountryProvider {
           {bool Function(Country) fun,
           bool firstCache: true,
           bool onErrorTryCache: false}) async =>
-      (await getCountries(firstCache: firstCache)).fold(null,
-          (acc, country) => acc != null ? acc : fun(country) ? country : null);
+      (await getCountries(firstCache: firstCache)).fold(
+          null,
+          (acc, country) => acc != null
+              ? acc
+              : fun(country)
+                  ? country
+                  : null);
 
   Future<Iterable<Country>> getCountriesBy(
           {bool Function(Country) fun,
