@@ -20,26 +20,30 @@ class _$StreetsBcnStreetApiModelSerializer
   final String wireName = 'StreetsBcnStreetApiModel';
 
   @override
-  Iterable<Object> serialize(
+  Iterable<Object?> serialize(
       Serializers serializers, StreetsBcnStreetApiModel object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.id != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
         ..add('Id')
-        ..add(serializers.serialize(object.id,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('Value')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('Descripcio')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -47,7 +51,7 @@ class _$StreetsBcnStreetApiModelSerializer
 
   @override
   StreetsBcnStreetApiModel deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new StreetsBcnStreetApiModelBuilder();
 
@@ -55,7 +59,7 @@ class _$StreetsBcnStreetApiModelSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'Id':
           result.id = serializers.deserialize(value,
@@ -78,14 +82,14 @@ class _$StreetsBcnStreetApiModelSerializer
 
 class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
   @override
-  final String id;
+  final String? id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String description;
+  final String? description;
 
   factory _$StreetsBcnStreetApiModel(
-          [void Function(StreetsBcnStreetApiModelBuilder) updates]) =>
+          [void Function(StreetsBcnStreetApiModelBuilder)? updates]) =>
       (new StreetsBcnStreetApiModelBuilder()..update(updates)).build();
 
   _$StreetsBcnStreetApiModel._({this.id, this.name, this.description})
@@ -128,27 +132,28 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
 class StreetsBcnStreetApiModelBuilder
     implements
         Builder<StreetsBcnStreetApiModel, StreetsBcnStreetApiModelBuilder> {
-  _$StreetsBcnStreetApiModel _$v;
+  _$StreetsBcnStreetApiModel? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
   StreetsBcnStreetApiModelBuilder();
 
   StreetsBcnStreetApiModelBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _description = _$v.description;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _description = $v.description;
       _$v = null;
     }
     return this;
@@ -156,14 +161,12 @@ class StreetsBcnStreetApiModelBuilder
 
   @override
   void replace(StreetsBcnStreetApiModel other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StreetsBcnStreetApiModel;
   }
 
   @override
-  void update(void Function(StreetsBcnStreetApiModelBuilder) updates) {
+  void update(void Function(StreetsBcnStreetApiModelBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

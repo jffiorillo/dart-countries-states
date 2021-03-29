@@ -15,38 +15,43 @@ class _$LanguagesSerializer implements StructuredSerializer<Languages> {
   final String wireName = 'Languages';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Languages object,
+  Iterable<Object?> serialize(Serializers serializers, Languages object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.iso6391 != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.iso6391;
+    if (value != null) {
       result
         ..add('iso639_1')
-        ..add(serializers.serialize(object.iso6391,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.iso6392 != null) {
+    value = object.iso6392;
+    if (value != null) {
       result
         ..add('iso639_2')
-        ..add(serializers.serialize(object.iso6392,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.nativeName != null) {
+    value = object.nativeName;
+    if (value != null) {
       result
         ..add('nativeName')
-        ..add(serializers.serialize(object.nativeName,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Languages deserialize(Serializers serializers, Iterable<Object> serialized,
+  Languages deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new LanguagesBuilder();
 
@@ -54,7 +59,7 @@ class _$LanguagesSerializer implements StructuredSerializer<Languages> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'iso639_1':
           result.iso6391 = serializers.deserialize(value,
@@ -81,15 +86,15 @@ class _$LanguagesSerializer implements StructuredSerializer<Languages> {
 
 class _$Languages extends Languages {
   @override
-  final String iso6391;
+  final String? iso6391;
   @override
-  final String iso6392;
+  final String? iso6392;
   @override
-  final String name;
+  final String? name;
   @override
-  final String nativeName;
+  final String? nativeName;
 
-  factory _$Languages([void Function(LanguagesBuilder) updates]) =>
+  factory _$Languages([void Function(LanguagesBuilder)? updates]) =>
       (new LanguagesBuilder()..update(updates)).build();
 
   _$Languages._({this.iso6391, this.iso6392, this.name, this.nativeName})
@@ -131,32 +136,33 @@ class _$Languages extends Languages {
 }
 
 class LanguagesBuilder implements Builder<Languages, LanguagesBuilder> {
-  _$Languages _$v;
+  _$Languages? _$v;
 
-  String _iso6391;
-  String get iso6391 => _$this._iso6391;
-  set iso6391(String iso6391) => _$this._iso6391 = iso6391;
+  String? _iso6391;
+  String? get iso6391 => _$this._iso6391;
+  set iso6391(String? iso6391) => _$this._iso6391 = iso6391;
 
-  String _iso6392;
-  String get iso6392 => _$this._iso6392;
-  set iso6392(String iso6392) => _$this._iso6392 = iso6392;
+  String? _iso6392;
+  String? get iso6392 => _$this._iso6392;
+  set iso6392(String? iso6392) => _$this._iso6392 = iso6392;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _nativeName;
-  String get nativeName => _$this._nativeName;
-  set nativeName(String nativeName) => _$this._nativeName = nativeName;
+  String? _nativeName;
+  String? get nativeName => _$this._nativeName;
+  set nativeName(String? nativeName) => _$this._nativeName = nativeName;
 
   LanguagesBuilder();
 
   LanguagesBuilder get _$this {
-    if (_$v != null) {
-      _iso6391 = _$v.iso6391;
-      _iso6392 = _$v.iso6392;
-      _name = _$v.name;
-      _nativeName = _$v.nativeName;
+    final $v = _$v;
+    if ($v != null) {
+      _iso6391 = $v.iso6391;
+      _iso6392 = $v.iso6392;
+      _name = $v.name;
+      _nativeName = $v.nativeName;
       _$v = null;
     }
     return this;
@@ -164,14 +170,12 @@ class LanguagesBuilder implements Builder<Languages, LanguagesBuilder> {
 
   @override
   void replace(Languages other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Languages;
   }
 
   @override
-  void update(void Function(LanguagesBuilder) updates) {
+  void update(void Function(LanguagesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

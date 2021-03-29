@@ -15,32 +15,36 @@ class _$CurrenciesSerializer implements StructuredSerializer<Currencies> {
   final String wireName = 'Currencies';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Currencies object,
+  Iterable<Object?> serialize(Serializers serializers, Currencies object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.code != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.code;
+    if (value != null) {
       result
         ..add('code')
-        ..add(serializers.serialize(object.code,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.symbol != null) {
+    value = object.symbol;
+    if (value != null) {
       result
         ..add('symbol')
-        ..add(serializers.serialize(object.symbol,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Currencies deserialize(Serializers serializers, Iterable<Object> serialized,
+  Currencies deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CurrenciesBuilder();
 
@@ -48,7 +52,7 @@ class _$CurrenciesSerializer implements StructuredSerializer<Currencies> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'code':
           result.code = serializers.deserialize(value,
@@ -71,13 +75,13 @@ class _$CurrenciesSerializer implements StructuredSerializer<Currencies> {
 
 class _$Currencies extends Currencies {
   @override
-  final String code;
+  final String? code;
   @override
-  final String name;
+  final String? name;
   @override
-  final String symbol;
+  final String? symbol;
 
-  factory _$Currencies([void Function(CurrenciesBuilder) updates]) =>
+  factory _$Currencies([void Function(CurrenciesBuilder)? updates]) =>
       (new CurrenciesBuilder()..update(updates)).build();
 
   _$Currencies._({this.code, this.name, this.symbol}) : super._();
@@ -114,27 +118,28 @@ class _$Currencies extends Currencies {
 }
 
 class CurrenciesBuilder implements Builder<Currencies, CurrenciesBuilder> {
-  _$Currencies _$v;
+  _$Currencies? _$v;
 
-  String _code;
-  String get code => _$this._code;
-  set code(String code) => _$this._code = code;
+  String? _code;
+  String? get code => _$this._code;
+  set code(String? code) => _$this._code = code;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _symbol;
-  String get symbol => _$this._symbol;
-  set symbol(String symbol) => _$this._symbol = symbol;
+  String? _symbol;
+  String? get symbol => _$this._symbol;
+  set symbol(String? symbol) => _$this._symbol = symbol;
 
   CurrenciesBuilder();
 
   CurrenciesBuilder get _$this {
-    if (_$v != null) {
-      _code = _$v.code;
-      _name = _$v.name;
-      _symbol = _$v.symbol;
+    final $v = _$v;
+    if ($v != null) {
+      _code = $v.code;
+      _name = $v.name;
+      _symbol = $v.symbol;
       _$v = null;
     }
     return this;
@@ -142,14 +147,12 @@ class CurrenciesBuilder implements Builder<Currencies, CurrenciesBuilder> {
 
   @override
   void replace(Currencies other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Currencies;
   }
 
   @override
-  void update(void Function(CurrenciesBuilder) updates) {
+  void update(void Function(CurrenciesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

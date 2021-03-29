@@ -15,15 +15,12 @@ abstract class StreetsBcnStreetApiModel
           [void Function(StreetsBcnStreetApiModelBuilder) updates]) =
       _$StreetsBcnStreetApiModel;
 
-  @nullable
   @BuiltValueField(wireName: 'Id')
-  String get id;
+  String? get id;
 
-  @nullable
   @BuiltValueField(wireName: 'Value')
-  String get name;
+  String? get name;
 
-  @nullable
   @BuiltValueField(wireName: 'Descripcio')
-  String get description;
+  String? get description;
 }

@@ -13,30 +13,24 @@ abstract class Languages implements Built<Languages, LanguagesBuilder> {
 
   factory Languages([updates(LanguagesBuilder b)]) = _$Languages;
 
-  @nullable
   @BuiltValueField(wireName: 'iso639_1')
-  String get iso6391;
+  String? get iso6391;
 
-  @nullable
   @BuiltValueField(wireName: 'iso639_2')
-  String get iso6392;
+  String? get iso6392;
 
-  @nullable
   @BuiltValueField(wireName: 'name')
-  String get name;
+  String? get name;
 
-  @nullable
   @BuiltValueField(wireName: 'nativeName')
-  String get nativeName;
+  String? get nativeName;
 
   String toJson() {
     return json.encode(serializers.serializeWith(Languages.serializer, this));
   }
 
-  static Languages fromJson(String jsonString) {
-    return serializers.deserializeWith(
-        Languages.serializer, json.decode(jsonString));
-  }
+  static Languages? fromJson(String jsonString) => serializers.deserializeWith(
+      Languages.serializer, json.decode(jsonString));
 
   static Serializer<Languages> get serializer => _$languagesSerializer;
 }

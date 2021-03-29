@@ -28,10 +28,8 @@ abstract class RegionalBlocs
         .encode(serializers.serializeWith(RegionalBlocs.serializer, this));
   }
 
-  static RegionalBlocs fromJson(String jsonString) {
-    return serializers.deserializeWith(
+  static RegionalBlocs? fromJson(String jsonString) => serializers.deserializeWith(
         RegionalBlocs.serializer, json.decode(jsonString));
-  }
 
   static Serializer<RegionalBlocs> get serializer => _$regionalBlocsSerializer;
 }
