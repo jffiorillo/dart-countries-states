@@ -146,9 +146,7 @@ abstract class Country implements Built<Country, CountryBuilder> {
   @BuiltValueField(wireName: 'cioc')
   String? get cioc;
 
-  String toJson() {
-    return json.encode(serializers.serializeWith(Country.serializer, this));
-  }
+  String toJson() => json.encode(serializers.serializeWith(Country.serializer, this));
 
   static Country? fromJson(String jsonString) => serializers.deserializeWith(
         Country.serializer, json.decode(jsonString));

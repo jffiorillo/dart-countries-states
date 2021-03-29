@@ -12,9 +12,8 @@ const _bcnRootUrl =
     'http://w20.bcn.cat/cartobcn/Cercador.ashx?refresh=False&adm=False&m=geocoding.llistacarrers&lang=';
 
 class StreetProvider {
-  Future<List<StreetInfo>> getStreetsByName(
-      {String name, LanguageCode languageCode: LanguageCode.es}) async {
-    assert(languageCode != null);
+  Future<List<StreetInfo>> getStreetsByName(String name,
+      {LanguageCode languageCode: LanguageCode.es}) async {
     var response = await UserAgentClient(http.Client()).post(
         Uri.parse(_bcnRootUrl + languageCode.name.toUpperCase()),
         body: 'q=$name');
@@ -22,7 +21,7 @@ class StreetProvider {
       print("Response: ${response.body}");
       final StreetsBcnResponseApiModel streets =
           standardSerializers.deserialize(jsonDecode(response.body),
-              specifiedType: FullType((StreetsBcnResponseApiModel)));
+              specifiedType: FullType((StreetsBcnResponseApiModel))) as StreetsBcnResponseApiModel;
       return streets.results
           .map((item) => StreetInfo.fromApi(item))
           .toList(growable: false);
