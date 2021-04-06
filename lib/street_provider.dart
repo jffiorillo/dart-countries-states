@@ -44,8 +44,3 @@ class UserAgentClient extends http.BaseClient {
     return _inner.send(request);
   }
 }
-
-main() async {
-  var streets = await StreetProvider().getStreetsByName("di");
-  print("${streets.length}");
-}
