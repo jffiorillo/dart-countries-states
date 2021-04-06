@@ -6,10 +6,13 @@ import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:dart_countries_states/src/models.api/streets_bcn_response_api_model.dart';
 import 'package:dart_countries_states/src/models.api/streets_bcn_street_api_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 
 import 'src/serializer/serializers.dart';
 
 class StreetProvider {
+  final logger = new Logger();
+
   Future<BuiltList<StreetsBcnStreetApiModel>> getStreetsByName(String name,
       {LanguageCode languageCode: LanguageCode.es}) async {
     var response = await UserAgentClient(http.Client()).get(Uri.https(
@@ -17,14 +20,14 @@ class StreetProvider {
         'geoBCN/serveis/territori/vies',
         {'nom': name, 'lang': languageCode.name.toUpperCase()}));
     if (response.statusCode == 200) {
-      print("Response: ${response.body}");
+      logger.d("Response: ${response.body}");
       final StreetsBcnResponseApiModel streets =
           standardSerializers.deserialize(jsonDecode(response.body),
                   specifiedType: FullType((StreetsBcnResponseApiModel)))
               as StreetsBcnResponseApiModel;
       return streets.results;
     } else {
-      print("Error ${response.reasonPhrase} ${response.statusCode}");
+      logger.e("Error ${response.reasonPhrase} ${response.statusCode}");
       return Future.error(response);
     }
   }
