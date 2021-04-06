@@ -14,8 +14,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(LanguageCode.serializer)
       ..add(Languages.serializer)
       ..add(RegionalBlocs.serializer)
+      ..add(StreetsBcnCoordinatesApiModel.serializer)
       ..add(StreetsBcnResponseApiModel.serializer)
       ..add(StreetsBcnStreetApiModel.serializer)
+      ..add(StreetsBcnStreetTypeApiModel.serializer)
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(StreetsBcnStreetApiModel)]),

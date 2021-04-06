@@ -24,7 +24,7 @@ class _$StreetsBcnResponseApiModelSerializer
       Serializers serializers, StreetsBcnResponseApiModel object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'results',
+      'resultats',
       serializers.serialize(object.results,
           specifiedType: const FullType(
               BuiltList, const [const FullType(StreetsBcnStreetApiModel)])),
@@ -45,7 +45,7 @@ class _$StreetsBcnResponseApiModelSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'results':
+        case 'resultats':
           result.results.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(StreetsBcnStreetApiModel)

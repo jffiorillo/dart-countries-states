@@ -1,30 +1,28 @@
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dart_countries_states/models/streets_info.dart';
 import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:dart_countries_states/src/models.api/streets_bcn_response_api_model.dart';
+import 'package:dart_countries_states/src/models.api/streets_bcn_street_api_model.dart';
 import 'package:http/http.dart' as http;
 
 import 'src/serializer/serializers.dart';
 
-const _bcnRootUrl =
-    'http://w20.bcn.cat/cartobcn/Cercador.ashx?refresh=False&adm=False&m=geocoding.llistacarrers&lang=';
-
 class StreetProvider {
-  Future<List<StreetInfo>> getStreetsByName(String name,
+  Future<BuiltList<StreetsBcnStreetApiModel>> getStreetsByName(String name,
       {LanguageCode languageCode: LanguageCode.es}) async {
-    var response = await UserAgentClient(http.Client()).post(
-        Uri.parse(_bcnRootUrl + languageCode.name.toUpperCase()),
-        body: 'q=$name');
+    var response = await UserAgentClient(http.Client()).get(Uri.https(
+        'w33.bcn.cat',
+        'geoBCN/serveis/territori/vies',
+        {'nom': name, 'lang': languageCode.name.toUpperCase()}));
     if (response.statusCode == 200) {
       print("Response: ${response.body}");
       final StreetsBcnResponseApiModel streets =
           standardSerializers.deserialize(jsonDecode(response.body),
-              specifiedType: FullType((StreetsBcnResponseApiModel))) as StreetsBcnResponseApiModel;
-      return streets.results
-          .map((item) => StreetInfo.fromApi(item))
-          .toList(growable: false);
+                  specifiedType: FullType((StreetsBcnResponseApiModel)))
+              as StreetsBcnResponseApiModel;
+      return streets.results;
     } else {
       print("Error ${response.reasonPhrase} ${response.statusCode}");
       return Future.error(response);
@@ -42,4 +40,9 @@ class UserAgentClient extends http.BaseClient {
         "application/x-www-form-urlencoded; charset=UTF-8";
     return _inner.send(request);
   }
+}
+
+main() async {
+  var streets = await StreetProvider().getStreetsByName("di");
+  print("${streets.length}");
 }
