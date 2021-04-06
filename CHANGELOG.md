@@ -1,5 +1,10 @@
 #Changelog
 
+## [0.1.1] - 2021/04/06
+
+* Fix static analysis
+* Fix example
+
 ## [0.1.0] - 2021/04/06
 
 * Fix Barcelona streets provider.
