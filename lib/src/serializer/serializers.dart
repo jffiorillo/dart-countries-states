@@ -7,8 +7,10 @@ import 'package:dart_countries_states/models/currencies.dart';
 import 'package:dart_countries_states/models/languages.dart';
 import 'package:dart_countries_states/models/regional_blocs.dart';
 import 'package:dart_countries_states/models/supported_languages.dart';
+import 'package:dart_countries_states/src/models.api/streets_bcn_coordinates_api_model.dart';
 import 'package:dart_countries_states/src/models.api/streets_bcn_response_api_model.dart';
 import 'package:dart_countries_states/src/models.api/streets_bcn_street_api_model.dart';
+import 'package:dart_countries_states/src/models.api/streets_bcn_street_type_api_model.dart';
 import 'package:dart_countries_states/src/serializer/remove_null_serializer.dart';
 
 import 'custom_enum_json_plugin.dart';

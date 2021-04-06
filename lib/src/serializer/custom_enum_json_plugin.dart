@@ -24,23 +24,20 @@ class CustomEnumJsonPlugin extends StandardJsonPlugin {
   CustomEnumJsonPlugin(this._customEnumTypes);
 
   @override
-  Object beforeDeserialize(object, type) {
+  Object? beforeDeserialize(object, type) {
     if (type.root == BuiltMap && type.parameters.isNotEmpty) {
       if (_customEnumTypes.contains(type.parameters.first.root)) {
-        object = _addEnumEncoding(object as Map<String, Object>);
+        object = _addEnumEncoding(object as Map<String, dynamic>);
       }
     }
     return super.beforeDeserialize(object, type);
   }
 
-  Map<String, Object> _addEnumEncoding(Map<String, Object> json) {
-    return json.map((key, value) {
-      return MapEntry('"$key"', value);
-    });
-  }
+  Map<String, T> _addEnumEncoding<T>(Map<String, T> json) =>
+      json.map((key, value) => MapEntry('"$key"', value));
 
   @override
-  Object afterSerialize(object, type) {
+  Object? afterSerialize(object, type) {
     var json = super.afterSerialize(object, type);
     if (type.root == BuiltMap && type.parameters.isNotEmpty) {
       if (_customEnumTypes.contains(type.parameters.first.root)) {

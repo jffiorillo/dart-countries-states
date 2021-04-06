@@ -15,168 +15,192 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
   final String wireName = 'Country';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Country object,
+  Iterable<Object?> serialize(Serializers serializers, Country object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.name != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.topLevelDomain != null) {
+    value = object.topLevelDomain;
+    if (value != null) {
       result
         ..add('topLevelDomain')
-        ..add(serializers.serialize(object.topLevelDomain,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.alpha2Code != null) {
+    value = object.alpha2Code;
+    if (value != null) {
       result
         ..add('alpha2Code')
-        ..add(serializers.serialize(object.alpha2Code,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(Alpha2Code)));
     }
-    if (object.alpha3Code != null) {
+    value = object.alpha3Code;
+    if (value != null) {
       result
         ..add('alpha3Code')
-        ..add(serializers.serialize(object.alpha3Code,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(Alpha3Code)));
     }
-    if (object.callingCodes != null) {
+    value = object.callingCodes;
+    if (value != null) {
       result
         ..add('callingCodes')
-        ..add(serializers.serialize(object.callingCodes,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.capital != null) {
+    value = object.capital;
+    if (value != null) {
       result
         ..add('capital')
-        ..add(serializers.serialize(object.capital,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.altSpellings != null) {
+    value = object.altSpellings;
+    if (value != null) {
       result
         ..add('altSpellings')
-        ..add(serializers.serialize(object.altSpellings,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.region != null) {
+    value = object.region;
+    if (value != null) {
       result
         ..add('region')
-        ..add(serializers.serialize(object.region,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.subregion != null) {
+    value = object.subregion;
+    if (value != null) {
       result
         ..add('subregion')
-        ..add(serializers.serialize(object.subregion,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.population != null) {
+    value = object.population;
+    if (value != null) {
       result
         ..add('population')
-        ..add(serializers.serialize(object.population,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.latlng != null) {
+    value = object.latlng;
+    if (value != null) {
       result
         ..add('latlng')
-        ..add(serializers.serialize(object.latlng,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(double)])));
     }
-    if (object.demonym != null) {
+    value = object.demonym;
+    if (value != null) {
       result
         ..add('demonym')
-        ..add(serializers.serialize(object.demonym,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.area != null) {
+    value = object.area;
+    if (value != null) {
       result
         ..add('area')
-        ..add(serializers.serialize(object.area,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    if (object.gini != null) {
+    value = object.gini;
+    if (value != null) {
       result
         ..add('gini')
-        ..add(serializers.serialize(object.gini,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    if (object.timezones != null) {
+    value = object.timezones;
+    if (value != null) {
       result
         ..add('timezones')
-        ..add(serializers.serialize(object.timezones,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.borders != null) {
+    value = object.borders;
+    if (value != null) {
       result
         ..add('borders')
-        ..add(serializers.serialize(object.borders,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.nativeName != null) {
+    value = object.nativeName;
+    if (value != null) {
       result
         ..add('nativeName')
-        ..add(serializers.serialize(object.nativeName,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.numericCode != null) {
+    value = object.numericCode;
+    if (value != null) {
       result
         ..add('numericCode')
-        ..add(serializers.serialize(object.numericCode,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.currencies != null) {
+    value = object.currencies;
+    if (value != null) {
       result
         ..add('currencies')
-        ..add(serializers.serialize(object.currencies,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(Currencies)])));
     }
-    if (object.languages != null) {
+    value = object.languages;
+    if (value != null) {
       result
         ..add('languages')
-        ..add(serializers.serialize(object.languages,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(Languages)])));
     }
-    if (object.translations != null) {
+    value = object.translations;
+    if (value != null) {
       result
         ..add('translations')
-        ..add(serializers.serialize(object.translations,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltMap,
                 const [const FullType(LanguageCode), const FullType(String)])));
     }
-    if (object.flag != null) {
+    value = object.flag;
+    if (value != null) {
       result
         ..add('flag')
-        ..add(serializers.serialize(object.flag,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.regionalBlocs != null) {
+    value = object.regionalBlocs;
+    if (value != null) {
       result
         ..add('regionalBlocs')
-        ..add(serializers.serialize(object.regionalBlocs,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType(RegionalBlocs)])));
     }
-    if (object.cioc != null) {
+    value = object.cioc;
+    if (value != null) {
       result
         ..add('cioc')
-        ..add(serializers.serialize(object.cioc,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Country deserialize(Serializers serializers, Iterable<Object> serialized,
+  Country deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CountryBuilder();
 
@@ -184,7 +208,7 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'name':
           result.name = serializers.deserialize(value,
@@ -192,9 +216,9 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'topLevelDomain':
           result.topLevelDomain.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object>);
           break;
         case 'alpha2Code':
           result.alpha2Code = serializers.deserialize(value,
@@ -206,9 +230,9 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'callingCodes':
           result.callingCodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object>);
           break;
         case 'capital':
           result.capital = serializers.deserialize(value,
@@ -216,9 +240,9 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'altSpellings':
           result.altSpellings.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object>);
           break;
         case 'region':
           result.region = serializers.deserialize(value,
@@ -234,9 +258,9 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'latlng':
           result.latlng.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(double)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(double)]))!
+              as BuiltList<Object>);
           break;
         case 'demonym':
           result.demonym = serializers.deserialize(value,
@@ -252,15 +276,15 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'timezones':
           result.timezones.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object>);
           break;
         case 'borders':
           result.borders.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object>);
           break;
         case 'nativeName':
           result.nativeName = serializers.deserialize(value,
@@ -273,21 +297,21 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
         case 'currencies':
           result.currencies.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(Currencies)]))
-              as BuiltList<dynamic>);
+                      BuiltList, const [const FullType(Currencies)]))!
+              as BuiltList<Object>);
           break;
         case 'languages':
           result.languages.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(Languages)]))
-              as BuiltList<dynamic>);
+                      BuiltList, const [const FullType(Languages)]))!
+              as BuiltList<Object>);
           break;
         case 'translations':
           result.translations.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(LanguageCode),
                 const FullType(String)
-              ])) as BuiltMap<dynamic, dynamic>);
+              ]))!);
           break;
         case 'flag':
           result.flag = serializers.deserialize(value,
@@ -296,8 +320,8 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
         case 'regionalBlocs':
           result.regionalBlocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(RegionalBlocs)]))
-              as BuiltList<dynamic>);
+                      BuiltList, const [const FullType(RegionalBlocs)]))!
+              as BuiltList<Object>);
           break;
         case 'cioc':
           result.cioc = serializers.deserialize(value,
@@ -312,55 +336,55 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
 
 class _$Country extends Country {
   @override
-  final String name;
+  final String? name;
   @override
-  final BuiltList<String> topLevelDomain;
+  final BuiltList<String>? topLevelDomain;
   @override
-  final Alpha2Code alpha2Code;
+  final Alpha2Code? alpha2Code;
   @override
-  final Alpha3Code alpha3Code;
+  final Alpha3Code? alpha3Code;
   @override
-  final BuiltList<String> callingCodes;
+  final BuiltList<String>? callingCodes;
   @override
-  final String capital;
+  final String? capital;
   @override
-  final BuiltList<String> altSpellings;
+  final BuiltList<String>? altSpellings;
   @override
-  final String region;
+  final String? region;
   @override
-  final String subregion;
+  final String? subregion;
   @override
-  final int population;
+  final int? population;
   @override
-  final BuiltList<double> latlng;
+  final BuiltList<double>? latlng;
   @override
-  final String demonym;
+  final String? demonym;
   @override
-  final double area;
+  final double? area;
   @override
-  final double gini;
+  final double? gini;
   @override
-  final BuiltList<String> timezones;
+  final BuiltList<String>? timezones;
   @override
-  final BuiltList<String> borders;
+  final BuiltList<String>? borders;
   @override
-  final String nativeName;
+  final String? nativeName;
   @override
-  final String numericCode;
+  final String? numericCode;
   @override
-  final BuiltList<Currencies> currencies;
+  final BuiltList<Currencies>? currencies;
   @override
-  final BuiltList<Languages> languages;
+  final BuiltList<Languages>? languages;
   @override
-  final BuiltMap<LanguageCode, String> translations;
+  final BuiltMap<LanguageCode, String>? translations;
   @override
-  final String flag;
+  final String? flag;
   @override
-  final BuiltList<RegionalBlocs> regionalBlocs;
+  final BuiltList<RegionalBlocs>? regionalBlocs;
   @override
-  final String cioc;
+  final String? cioc;
 
-  factory _$Country([void Function(CountryBuilder) updates]) =>
+  factory _$Country([void Function(CountryBuilder)? updates]) =>
       (new CountryBuilder()..update(updates)).build();
 
   _$Country._(
@@ -501,149 +525,151 @@ class _$Country extends Country {
 }
 
 class CountryBuilder implements Builder<Country, CountryBuilder> {
-  _$Country _$v;
+  _$Country? _$v;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  ListBuilder<String> _topLevelDomain;
+  ListBuilder<String>? _topLevelDomain;
   ListBuilder<String> get topLevelDomain =>
       _$this._topLevelDomain ??= new ListBuilder<String>();
-  set topLevelDomain(ListBuilder<String> topLevelDomain) =>
+  set topLevelDomain(ListBuilder<String>? topLevelDomain) =>
       _$this._topLevelDomain = topLevelDomain;
 
-  Alpha2Code _alpha2Code;
-  Alpha2Code get alpha2Code => _$this._alpha2Code;
-  set alpha2Code(Alpha2Code alpha2Code) => _$this._alpha2Code = alpha2Code;
+  Alpha2Code? _alpha2Code;
+  Alpha2Code? get alpha2Code => _$this._alpha2Code;
+  set alpha2Code(Alpha2Code? alpha2Code) => _$this._alpha2Code = alpha2Code;
 
-  Alpha3Code _alpha3Code;
-  Alpha3Code get alpha3Code => _$this._alpha3Code;
-  set alpha3Code(Alpha3Code alpha3Code) => _$this._alpha3Code = alpha3Code;
+  Alpha3Code? _alpha3Code;
+  Alpha3Code? get alpha3Code => _$this._alpha3Code;
+  set alpha3Code(Alpha3Code? alpha3Code) => _$this._alpha3Code = alpha3Code;
 
-  ListBuilder<String> _callingCodes;
+  ListBuilder<String>? _callingCodes;
   ListBuilder<String> get callingCodes =>
       _$this._callingCodes ??= new ListBuilder<String>();
-  set callingCodes(ListBuilder<String> callingCodes) =>
+  set callingCodes(ListBuilder<String>? callingCodes) =>
       _$this._callingCodes = callingCodes;
 
-  String _capital;
-  String get capital => _$this._capital;
-  set capital(String capital) => _$this._capital = capital;
+  String? _capital;
+  String? get capital => _$this._capital;
+  set capital(String? capital) => _$this._capital = capital;
 
-  ListBuilder<String> _altSpellings;
+  ListBuilder<String>? _altSpellings;
   ListBuilder<String> get altSpellings =>
       _$this._altSpellings ??= new ListBuilder<String>();
-  set altSpellings(ListBuilder<String> altSpellings) =>
+  set altSpellings(ListBuilder<String>? altSpellings) =>
       _$this._altSpellings = altSpellings;
 
-  String _region;
-  String get region => _$this._region;
-  set region(String region) => _$this._region = region;
+  String? _region;
+  String? get region => _$this._region;
+  set region(String? region) => _$this._region = region;
 
-  String _subregion;
-  String get subregion => _$this._subregion;
-  set subregion(String subregion) => _$this._subregion = subregion;
+  String? _subregion;
+  String? get subregion => _$this._subregion;
+  set subregion(String? subregion) => _$this._subregion = subregion;
 
-  int _population;
-  int get population => _$this._population;
-  set population(int population) => _$this._population = population;
+  int? _population;
+  int? get population => _$this._population;
+  set population(int? population) => _$this._population = population;
 
-  ListBuilder<double> _latlng;
+  ListBuilder<double>? _latlng;
   ListBuilder<double> get latlng =>
       _$this._latlng ??= new ListBuilder<double>();
-  set latlng(ListBuilder<double> latlng) => _$this._latlng = latlng;
+  set latlng(ListBuilder<double>? latlng) => _$this._latlng = latlng;
 
-  String _demonym;
-  String get demonym => _$this._demonym;
-  set demonym(String demonym) => _$this._demonym = demonym;
+  String? _demonym;
+  String? get demonym => _$this._demonym;
+  set demonym(String? demonym) => _$this._demonym = demonym;
 
-  double _area;
-  double get area => _$this._area;
-  set area(double area) => _$this._area = area;
+  double? _area;
+  double? get area => _$this._area;
+  set area(double? area) => _$this._area = area;
 
-  double _gini;
-  double get gini => _$this._gini;
-  set gini(double gini) => _$this._gini = gini;
+  double? _gini;
+  double? get gini => _$this._gini;
+  set gini(double? gini) => _$this._gini = gini;
 
-  ListBuilder<String> _timezones;
+  ListBuilder<String>? _timezones;
   ListBuilder<String> get timezones =>
       _$this._timezones ??= new ListBuilder<String>();
-  set timezones(ListBuilder<String> timezones) => _$this._timezones = timezones;
+  set timezones(ListBuilder<String>? timezones) =>
+      _$this._timezones = timezones;
 
-  ListBuilder<String> _borders;
+  ListBuilder<String>? _borders;
   ListBuilder<String> get borders =>
       _$this._borders ??= new ListBuilder<String>();
-  set borders(ListBuilder<String> borders) => _$this._borders = borders;
+  set borders(ListBuilder<String>? borders) => _$this._borders = borders;
 
-  String _nativeName;
-  String get nativeName => _$this._nativeName;
-  set nativeName(String nativeName) => _$this._nativeName = nativeName;
+  String? _nativeName;
+  String? get nativeName => _$this._nativeName;
+  set nativeName(String? nativeName) => _$this._nativeName = nativeName;
 
-  String _numericCode;
-  String get numericCode => _$this._numericCode;
-  set numericCode(String numericCode) => _$this._numericCode = numericCode;
+  String? _numericCode;
+  String? get numericCode => _$this._numericCode;
+  set numericCode(String? numericCode) => _$this._numericCode = numericCode;
 
-  ListBuilder<Currencies> _currencies;
+  ListBuilder<Currencies>? _currencies;
   ListBuilder<Currencies> get currencies =>
       _$this._currencies ??= new ListBuilder<Currencies>();
-  set currencies(ListBuilder<Currencies> currencies) =>
+  set currencies(ListBuilder<Currencies>? currencies) =>
       _$this._currencies = currencies;
 
-  ListBuilder<Languages> _languages;
+  ListBuilder<Languages>? _languages;
   ListBuilder<Languages> get languages =>
       _$this._languages ??= new ListBuilder<Languages>();
-  set languages(ListBuilder<Languages> languages) =>
+  set languages(ListBuilder<Languages>? languages) =>
       _$this._languages = languages;
 
-  MapBuilder<LanguageCode, String> _translations;
+  MapBuilder<LanguageCode, String>? _translations;
   MapBuilder<LanguageCode, String> get translations =>
       _$this._translations ??= new MapBuilder<LanguageCode, String>();
-  set translations(MapBuilder<LanguageCode, String> translations) =>
+  set translations(MapBuilder<LanguageCode, String>? translations) =>
       _$this._translations = translations;
 
-  String _flag;
-  String get flag => _$this._flag;
-  set flag(String flag) => _$this._flag = flag;
+  String? _flag;
+  String? get flag => _$this._flag;
+  set flag(String? flag) => _$this._flag = flag;
 
-  ListBuilder<RegionalBlocs> _regionalBlocs;
+  ListBuilder<RegionalBlocs>? _regionalBlocs;
   ListBuilder<RegionalBlocs> get regionalBlocs =>
       _$this._regionalBlocs ??= new ListBuilder<RegionalBlocs>();
-  set regionalBlocs(ListBuilder<RegionalBlocs> regionalBlocs) =>
+  set regionalBlocs(ListBuilder<RegionalBlocs>? regionalBlocs) =>
       _$this._regionalBlocs = regionalBlocs;
 
-  String _cioc;
-  String get cioc => _$this._cioc;
-  set cioc(String cioc) => _$this._cioc = cioc;
+  String? _cioc;
+  String? get cioc => _$this._cioc;
+  set cioc(String? cioc) => _$this._cioc = cioc;
 
   CountryBuilder();
 
   CountryBuilder get _$this {
-    if (_$v != null) {
-      _name = _$v.name;
-      _topLevelDomain = _$v.topLevelDomain?.toBuilder();
-      _alpha2Code = _$v.alpha2Code;
-      _alpha3Code = _$v.alpha3Code;
-      _callingCodes = _$v.callingCodes?.toBuilder();
-      _capital = _$v.capital;
-      _altSpellings = _$v.altSpellings?.toBuilder();
-      _region = _$v.region;
-      _subregion = _$v.subregion;
-      _population = _$v.population;
-      _latlng = _$v.latlng?.toBuilder();
-      _demonym = _$v.demonym;
-      _area = _$v.area;
-      _gini = _$v.gini;
-      _timezones = _$v.timezones?.toBuilder();
-      _borders = _$v.borders?.toBuilder();
-      _nativeName = _$v.nativeName;
-      _numericCode = _$v.numericCode;
-      _currencies = _$v.currencies?.toBuilder();
-      _languages = _$v.languages?.toBuilder();
-      _translations = _$v.translations?.toBuilder();
-      _flag = _$v.flag;
-      _regionalBlocs = _$v.regionalBlocs?.toBuilder();
-      _cioc = _$v.cioc;
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _topLevelDomain = $v.topLevelDomain?.toBuilder();
+      _alpha2Code = $v.alpha2Code;
+      _alpha3Code = $v.alpha3Code;
+      _callingCodes = $v.callingCodes?.toBuilder();
+      _capital = $v.capital;
+      _altSpellings = $v.altSpellings?.toBuilder();
+      _region = $v.region;
+      _subregion = $v.subregion;
+      _population = $v.population;
+      _latlng = $v.latlng?.toBuilder();
+      _demonym = $v.demonym;
+      _area = $v.area;
+      _gini = $v.gini;
+      _timezones = $v.timezones?.toBuilder();
+      _borders = $v.borders?.toBuilder();
+      _nativeName = $v.nativeName;
+      _numericCode = $v.numericCode;
+      _currencies = $v.currencies?.toBuilder();
+      _languages = $v.languages?.toBuilder();
+      _translations = $v.translations?.toBuilder();
+      _flag = $v.flag;
+      _regionalBlocs = $v.regionalBlocs?.toBuilder();
+      _cioc = $v.cioc;
       _$v = null;
     }
     return this;
@@ -651,14 +677,12 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
 
   @override
   void replace(Country other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Country;
   }
 
   @override
-  void update(void Function(CountryBuilder) updates) {
+  void update(void Function(CountryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -693,7 +717,7 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
               regionalBlocs: _regionalBlocs?.build(),
               cioc: cioc);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'topLevelDomain';
         _topLevelDomain?.build();

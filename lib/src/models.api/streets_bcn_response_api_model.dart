@@ -17,6 +17,6 @@ abstract class StreetsBcnResponseApiModel
           [void Function(StreetsBcnResponseApiModelBuilder) updates]) =
       _$StreetsBcnResponseApiModel;
 
-  @nullable
+  @BuiltValueField(wireName: 'resultats')
   BuiltList<StreetsBcnStreetApiModel> get results;
 }

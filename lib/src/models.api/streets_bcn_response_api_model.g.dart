@@ -20,23 +20,22 @@ class _$StreetsBcnResponseApiModelSerializer
   final String wireName = 'StreetsBcnResponseApiModel';
 
   @override
-  Iterable<Object> serialize(
+  Iterable<Object?> serialize(
       Serializers serializers, StreetsBcnResponseApiModel object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.results != null) {
-      result
-        ..add('results')
-        ..add(serializers.serialize(object.results,
-            specifiedType: const FullType(
-                BuiltList, const [const FullType(StreetsBcnStreetApiModel)])));
-    }
+    final result = <Object?>[
+      'resultats',
+      serializers.serialize(object.results,
+          specifiedType: const FullType(
+              BuiltList, const [const FullType(StreetsBcnStreetApiModel)])),
+    ];
+
     return result;
   }
 
   @override
   StreetsBcnResponseApiModel deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new StreetsBcnResponseApiModelBuilder();
 
@@ -44,13 +43,13 @@ class _$StreetsBcnResponseApiModelSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
-        case 'results':
+        case 'resultats':
           result.results.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(StreetsBcnStreetApiModel)
-              ])) as BuiltList<dynamic>);
+              ]))! as BuiltList<Object>);
           break;
       }
     }
@@ -64,10 +63,13 @@ class _$StreetsBcnResponseApiModel extends StreetsBcnResponseApiModel {
   final BuiltList<StreetsBcnStreetApiModel> results;
 
   factory _$StreetsBcnResponseApiModel(
-          [void Function(StreetsBcnResponseApiModelBuilder) updates]) =>
+          [void Function(StreetsBcnResponseApiModelBuilder)? updates]) =>
       (new StreetsBcnResponseApiModelBuilder()..update(updates)).build();
 
-  _$StreetsBcnResponseApiModel._({this.results}) : super._();
+  _$StreetsBcnResponseApiModel._({required this.results}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        results, 'StreetsBcnResponseApiModel', 'results');
+  }
 
   @override
   StreetsBcnResponseApiModel rebuild(
@@ -100,19 +102,20 @@ class _$StreetsBcnResponseApiModel extends StreetsBcnResponseApiModel {
 class StreetsBcnResponseApiModelBuilder
     implements
         Builder<StreetsBcnResponseApiModel, StreetsBcnResponseApiModelBuilder> {
-  _$StreetsBcnResponseApiModel _$v;
+  _$StreetsBcnResponseApiModel? _$v;
 
-  ListBuilder<StreetsBcnStreetApiModel> _results;
+  ListBuilder<StreetsBcnStreetApiModel>? _results;
   ListBuilder<StreetsBcnStreetApiModel> get results =>
       _$this._results ??= new ListBuilder<StreetsBcnStreetApiModel>();
-  set results(ListBuilder<StreetsBcnStreetApiModel> results) =>
+  set results(ListBuilder<StreetsBcnStreetApiModel>? results) =>
       _$this._results = results;
 
   StreetsBcnResponseApiModelBuilder();
 
   StreetsBcnResponseApiModelBuilder get _$this {
-    if (_$v != null) {
-      _results = _$v.results?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _results = $v.results.toBuilder();
       _$v = null;
     }
     return this;
@@ -120,14 +123,12 @@ class StreetsBcnResponseApiModelBuilder
 
   @override
   void replace(StreetsBcnResponseApiModel other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StreetsBcnResponseApiModel;
   }
 
   @override
-  void update(void Function(StreetsBcnResponseApiModelBuilder) updates) {
+  void update(void Function(StreetsBcnResponseApiModelBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -136,12 +137,12 @@ class StreetsBcnResponseApiModelBuilder
     _$StreetsBcnResponseApiModel _$result;
     try {
       _$result =
-          _$v ?? new _$StreetsBcnResponseApiModel._(results: _results?.build());
+          _$v ?? new _$StreetsBcnResponseApiModel._(results: results.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'results';
-        _results?.build();
+        results.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'StreetsBcnResponseApiModel', _$failedField, e.toString());

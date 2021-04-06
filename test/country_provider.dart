@@ -5,7 +5,7 @@ import 'package:dart_countries_states/models/supported_languages.dart';
 import 'package:test/test.dart';
 
 void main() {
-  CountryProvider countryProvider;
+  late CountryProvider countryProvider;
   setUp(() {
     countryProvider = CountryProvider();
   });
@@ -13,85 +13,87 @@ void main() {
   test('should load and parse countries', () async {
     var countries = await countryProvider.getCountries();
 
-    expect(countries.length, 250);
+    expect(countries?.length, 250);
   });
 
   test('should load and parse countries', () async {
     var countries = await countryProvider.getCountries();
 
-    expect(countries.length, 250);
+    expect(countries?.length, 250);
   });
   test('should read all countries', () async {
     var countries = await countryProvider.getCountries();
 
-    expect(countries.length, 250);
+    expect(countries?.length, 250);
   });
 
   test('should provide country when requested by Capital', () async {
-    final country =
-        await countryProvider.getCountryByCapital(capital: 'Caracas');
+    final country = await countryProvider.getCountryByCapital('Caracas');
 
-    expect(country.name, 'Venezuela (Bolivarian Republic of)');
+    expect(country?.name, 'Venezuela (Bolivarian Republic of)');
   });
 
   test('should provide country when requested by Name', () async {
-    final country = await countryProvider.getCountryByName(name: 'Australia');
+    final country = await countryProvider.getCountryByName('Australia');
 
-    expect(country.alpha2Code, Alpha2Code.AU);
+    expect(country?.alpha2Code, Alpha2Code.AU);
   });
 
   test('should provide country when requested by Region', () async {
-    Iterable<Country> countries =
-        await countryProvider.getCountriesByRegion(region: 'Asia');
+    Iterable<Country>? countries =
+        await countryProvider.getCountriesByRegion('Asia');
 
-    expect(countries.length, 50);
+    expect(countries?.length, 50);
   });
 
   test('should provide country when requested by subregion', () async {
-    final countries = await countryProvider.getCountriesBySubregion(
-        subregion: 'Northern Europe');
+    final countries =
+        await countryProvider.getCountriesBySubregion('Northern Europe');
 
-    expect(countries.length, 16);
+    expect(countries?.length, 16);
   });
 
-  test('should provider contries by region', () async {
+  test('should provider countries by region', () async {
+    var countries = await countryProvider.getCountriesByRegion('Americas');
+
+    expect(countries?.length, 57);
+  });
+
+  test('should provider countries by subregion', () async {
     var countries =
-        await countryProvider.getCountriesByRegion(region: 'Americas');
+        await countryProvider.getCountriesBySubregion('Western Africa');
 
-    expect(countries.length, 57);
+    expect(countries?.length, 17);
   });
 
-  test('should provider contries by subregion', () async {
-    var countries = await countryProvider.getCountriesBySubregion(
-        subregion: 'Western Africa');
+  test('should provider countries by name contains', () async {
+    var countries = await countryProvider.getCountriesByNameContains('Au');
 
-    expect(countries.length, 17);
+    expect(countries?.length, 9);
   });
 
-  test('should provider contries by name contains', () async {
-    var countries =
-        await countryProvider.getCountriesByNameContains(name: 'Au');
+  test('should provider countries by region contains', () async {
+    var countries = await countryProvider.getCountriesByRegionContains('A');
 
-    expect(countries.length, 9);
-  });
-
-  test('should provider contries by region contains', () async {
-    var countries =
-        await countryProvider.getCountriesByRegionContains(region: 'A');
-
-    expect(countries.length, 195);
+    expect(countries?.length, 195);
   });
 
   test('should provider translations', () async {
-    var countries = await countryProvider.getCountryByName(name: 'Brazil');
+    var countries = await countryProvider.getCountryByName('Brazil');
 
-    expect(countries.translations.length, 10);
+    expect(countries?.translations?.length, 10);
+  });
+
+  test('should contains country', () async {
+    var countries = await countryProvider.getCountryByName('United States of America');
+
+    expect(countries?.translations?.length, 10);
   });
 
   test('should provider in different languages', () async {
-    var countries = await countryProvider.getCountryByName(
-        name: 'Koweït', lang: LanguageCode.fr);
+    var countries =
+        await countryProvider.getCountryByName('Koweït', lang: LanguageCode.fr);
 
-    expect(countries.capital, 'Kuwait City');
+    expect(countries?.capital, 'Kuwait City');
   });
 }

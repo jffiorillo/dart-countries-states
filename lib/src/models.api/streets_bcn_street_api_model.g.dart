@@ -20,34 +20,73 @@ class _$StreetsBcnStreetApiModelSerializer
   final String wireName = 'StreetsBcnStreetApiModel';
 
   @override
-  Iterable<Object> serialize(
+  Iterable<Object?> serialize(
       Serializers serializers, StreetsBcnStreetApiModel object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.id != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
-        ..add('Id')
-        ..add(serializers.serialize(object.id,
+        ..add('codi')
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
-        ..add('Value')
-        ..add(serializers.serialize(object.name,
+        ..add('nom')
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.description != null) {
+    value = object.name18;
+    if (value != null) {
       result
-        ..add('Descripcio')
-        ..add(serializers.serialize(object.description,
+        ..add('nom18')
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
+    }
+    value = object.name27;
+    if (value != null) {
+      result
+        ..add('nom27')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.streetType;
+    if (value != null) {
+      result
+        ..add('tipusVia')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(StreetsBcnStreetTypeApiModel)));
+    }
+    value = object.fullName;
+    if (value != null) {
+      result
+        ..add('nomLlarg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.fullNameWithStreetType;
+    if (value != null) {
+      result
+        ..add('nomComplet')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.coordinates;
+    if (value != null) {
+      result
+        ..add('localitzacio')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(StreetsBcnCoordinatesApiModel)));
     }
     return result;
   }
 
   @override
   StreetsBcnStreetApiModel deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new StreetsBcnStreetApiModelBuilder();
 
@@ -55,19 +94,41 @@ class _$StreetsBcnStreetApiModelSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
-        case 'Id':
+        case 'codi':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'Value':
+        case 'nom':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'Descripcio':
-          result.description = serializers.deserialize(value,
+        case 'nom18':
+          result.name18 = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'nom27':
+          result.name27 = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'tipusVia':
+          result.streetType.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(StreetsBcnStreetTypeApiModel))!
+              as StreetsBcnStreetTypeApiModel);
+          break;
+        case 'nomLlarg':
+          result.fullName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'nomComplet':
+          result.fullNameWithStreetType = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'localitzacio':
+          result.coordinates.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(StreetsBcnCoordinatesApiModel))!
+              as StreetsBcnCoordinatesApiModel);
           break;
       }
     }
@@ -78,17 +139,35 @@ class _$StreetsBcnStreetApiModelSerializer
 
 class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
   @override
-  final String id;
+  final String? id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String description;
+  final String? name18;
+  @override
+  final String? name27;
+  @override
+  final StreetsBcnStreetTypeApiModel? streetType;
+  @override
+  final String? fullName;
+  @override
+  final String? fullNameWithStreetType;
+  @override
+  final StreetsBcnCoordinatesApiModel? coordinates;
 
   factory _$StreetsBcnStreetApiModel(
-          [void Function(StreetsBcnStreetApiModelBuilder) updates]) =>
+          [void Function(StreetsBcnStreetApiModelBuilder)? updates]) =>
       (new StreetsBcnStreetApiModelBuilder()..update(updates)).build();
 
-  _$StreetsBcnStreetApiModel._({this.id, this.name, this.description})
+  _$StreetsBcnStreetApiModel._(
+      {this.id,
+      this.name,
+      this.name18,
+      this.name27,
+      this.streetType,
+      this.fullName,
+      this.fullNameWithStreetType,
+      this.coordinates})
       : super._();
 
   @override
@@ -106,13 +185,28 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
     return other is StreetsBcnStreetApiModel &&
         id == other.id &&
         name == other.name &&
-        description == other.description;
+        name18 == other.name18 &&
+        name27 == other.name27 &&
+        streetType == other.streetType &&
+        fullName == other.fullName &&
+        fullNameWithStreetType == other.fullNameWithStreetType &&
+        coordinates == other.coordinates;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, id.hashCode), name.hashCode), description.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, id.hashCode), name.hashCode),
+                            name18.hashCode),
+                        name27.hashCode),
+                    streetType.hashCode),
+                fullName.hashCode),
+            fullNameWithStreetType.hashCode),
+        coordinates.hashCode));
   }
 
   @override
@@ -120,7 +214,12 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
     return (newBuiltValueToStringHelper('StreetsBcnStreetApiModel')
           ..add('id', id)
           ..add('name', name)
-          ..add('description', description))
+          ..add('name18', name18)
+          ..add('name27', name27)
+          ..add('streetType', streetType)
+          ..add('fullName', fullName)
+          ..add('fullNameWithStreetType', fullNameWithStreetType)
+          ..add('coordinates', coordinates))
         .toString();
   }
 }
@@ -128,27 +227,58 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
 class StreetsBcnStreetApiModelBuilder
     implements
         Builder<StreetsBcnStreetApiModel, StreetsBcnStreetApiModelBuilder> {
-  _$StreetsBcnStreetApiModel _$v;
+  _$StreetsBcnStreetApiModel? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _name18;
+  String? get name18 => _$this._name18;
+  set name18(String? name18) => _$this._name18 = name18;
+
+  String? _name27;
+  String? get name27 => _$this._name27;
+  set name27(String? name27) => _$this._name27 = name27;
+
+  StreetsBcnStreetTypeApiModelBuilder? _streetType;
+  StreetsBcnStreetTypeApiModelBuilder get streetType =>
+      _$this._streetType ??= new StreetsBcnStreetTypeApiModelBuilder();
+  set streetType(StreetsBcnStreetTypeApiModelBuilder? streetType) =>
+      _$this._streetType = streetType;
+
+  String? _fullName;
+  String? get fullName => _$this._fullName;
+  set fullName(String? fullName) => _$this._fullName = fullName;
+
+  String? _fullNameWithStreetType;
+  String? get fullNameWithStreetType => _$this._fullNameWithStreetType;
+  set fullNameWithStreetType(String? fullNameWithStreetType) =>
+      _$this._fullNameWithStreetType = fullNameWithStreetType;
+
+  StreetsBcnCoordinatesApiModelBuilder? _coordinates;
+  StreetsBcnCoordinatesApiModelBuilder get coordinates =>
+      _$this._coordinates ??= new StreetsBcnCoordinatesApiModelBuilder();
+  set coordinates(StreetsBcnCoordinatesApiModelBuilder? coordinates) =>
+      _$this._coordinates = coordinates;
 
   StreetsBcnStreetApiModelBuilder();
 
   StreetsBcnStreetApiModelBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _description = _$v.description;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _name18 = $v.name18;
+      _name27 = $v.name27;
+      _streetType = $v.streetType?.toBuilder();
+      _fullName = $v.fullName;
+      _fullNameWithStreetType = $v.fullNameWithStreetType;
+      _coordinates = $v.coordinates?.toBuilder();
       _$v = null;
     }
     return this;
@@ -156,22 +286,43 @@ class StreetsBcnStreetApiModelBuilder
 
   @override
   void replace(StreetsBcnStreetApiModel other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StreetsBcnStreetApiModel;
   }
 
   @override
-  void update(void Function(StreetsBcnStreetApiModelBuilder) updates) {
+  void update(void Function(StreetsBcnStreetApiModelBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
   _$StreetsBcnStreetApiModel build() {
-    final _$result = _$v ??
-        new _$StreetsBcnStreetApiModel._(
-            id: id, name: name, description: description);
+    _$StreetsBcnStreetApiModel _$result;
+    try {
+      _$result = _$v ??
+          new _$StreetsBcnStreetApiModel._(
+              id: id,
+              name: name,
+              name18: name18,
+              name27: name27,
+              streetType: _streetType?.build(),
+              fullName: fullName,
+              fullNameWithStreetType: fullNameWithStreetType,
+              coordinates: _coordinates?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'streetType';
+        _streetType?.build();
+
+        _$failedField = 'coordinates';
+        _coordinates?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'StreetsBcnStreetApiModel', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
