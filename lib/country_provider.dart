@@ -16,7 +16,7 @@ class CountryProvider {
   BuiltList<Country>? _cache;
 
   Future<BuiltList<Country>?> getCountries(
-      {onErrorTryCache: false, firstCache: false}) async {
+      {onErrorTryCache = false, firstCache = false}) async {
     if (firstCache && cacheIsNotEmpty) return Future.value(_cache);
     var response = await http.get(Uri.parse(_endpointUrl));
     if (response.statusCode == 200) {
