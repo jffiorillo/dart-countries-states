@@ -1,5 +1,14 @@
 #Changelog
 
+## [0.1.0] - 2021/04/06
+
+* Fix Barcelona streets provider.
+* Introduce null-safety.
+
+## [0.0.9] - 2021/03/25
+
+* Update dependencies
+
 ## [0.0.8] - 2019/12/15
 
 * Clean dependencies
