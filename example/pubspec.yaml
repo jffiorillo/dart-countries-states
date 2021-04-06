@@ -1,4 +1,4 @@
-name: dart_countries_states
+name: dart_countries_states_example
 description: >
   Just an example, not for publishing.
 version: 0.0.6
@@ -7,3 +7,6 @@ homepage: https://github.com/jffiorillo/dart-countries-states
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  dart_countries_states: 0.1.0
