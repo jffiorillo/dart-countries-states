@@ -58,21 +58,21 @@ class _$StreetsBcnStreetTypeApiModelSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'codi':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'abreviatura':
           result.abbreviation = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'nom':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -91,7 +91,7 @@ class _$StreetsBcnStreetTypeApiModel extends StreetsBcnStreetTypeApiModel {
 
   factory _$StreetsBcnStreetTypeApiModel(
           [void Function(StreetsBcnStreetTypeApiModelBuilder)? updates]) =>
-      (new StreetsBcnStreetTypeApiModelBuilder()..update(updates)).build();
+      (new StreetsBcnStreetTypeApiModelBuilder()..update(updates))._build();
 
   _$StreetsBcnStreetTypeApiModel._({this.id, this.abbreviation, this.name})
       : super._();
@@ -122,7 +122,7 @@ class _$StreetsBcnStreetTypeApiModel extends StreetsBcnStreetTypeApiModel {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('StreetsBcnStreetTypeApiModel')
+    return (newBuiltValueToStringHelper(r'StreetsBcnStreetTypeApiModel')
           ..add('id', id)
           ..add('abbreviation', abbreviation)
           ..add('name', name))
@@ -173,7 +173,9 @@ class StreetsBcnStreetTypeApiModelBuilder
   }
 
   @override
-  _$StreetsBcnStreetTypeApiModel build() {
+  StreetsBcnStreetTypeApiModel build() => _build();
+
+  _$StreetsBcnStreetTypeApiModel _build() {
     final _$result = _$v ??
         new _$StreetsBcnStreetTypeApiModel._(
             id: id, abbreviation: abbreviation, name: name);
@@ -182,4 +184,4 @@ class StreetsBcnStreetTypeApiModelBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

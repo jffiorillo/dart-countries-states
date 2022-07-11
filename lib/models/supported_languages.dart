@@ -20,4 +20,5 @@ class LanguageCode extends EnumClass {
   static const LanguageCode ja = _$ja;
   static const LanguageCode es = _$es;
   static const LanguageCode hr = _$hr;
+  static const LanguageCode hu = _$hu;
 }

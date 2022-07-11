@@ -92,25 +92,25 @@ class _$StreetsBcnStreetApiModelSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'codi':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'nom':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'nom18':
           result.name18 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'nom27':
           result.name27 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'tipusVia':
           result.streetType.replace(serializers.deserialize(value,
@@ -119,11 +119,11 @@ class _$StreetsBcnStreetApiModelSerializer
           break;
         case 'nomLlarg':
           result.fullName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'nomComplet':
           result.fullNameWithStreetType = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'localitzacio':
           result.coordinates.replace(serializers.deserialize(value,
@@ -157,7 +157,7 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
 
   factory _$StreetsBcnStreetApiModel(
           [void Function(StreetsBcnStreetApiModelBuilder)? updates]) =>
-      (new StreetsBcnStreetApiModelBuilder()..update(updates)).build();
+      (new StreetsBcnStreetApiModelBuilder()..update(updates))._build();
 
   _$StreetsBcnStreetApiModel._(
       {this.id,
@@ -211,7 +211,7 @@ class _$StreetsBcnStreetApiModel extends StreetsBcnStreetApiModel {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('StreetsBcnStreetApiModel')
+    return (newBuiltValueToStringHelper(r'StreetsBcnStreetApiModel')
           ..add('id', id)
           ..add('name', name)
           ..add('name18', name18)
@@ -296,7 +296,9 @@ class StreetsBcnStreetApiModelBuilder
   }
 
   @override
-  _$StreetsBcnStreetApiModel build() {
+  StreetsBcnStreetApiModel build() => _build();
+
+  _$StreetsBcnStreetApiModel _build() {
     _$StreetsBcnStreetApiModel _$result;
     try {
       _$result = _$v ??
@@ -319,7 +321,7 @@ class StreetsBcnStreetApiModelBuilder
         _coordinates?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'StreetsBcnStreetApiModel', _$failedField, e.toString());
+            r'StreetsBcnStreetApiModel', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -328,4 +330,4 @@ class StreetsBcnStreetApiModelBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
