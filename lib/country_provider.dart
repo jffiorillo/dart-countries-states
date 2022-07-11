@@ -10,7 +10,7 @@ import 'models/alpha2_codes.dart';
 import 'models/alpha3_code.dart';
 import 'models/country.dart';
 
-const _endpointUrl = 'https://restcountries.eu/rest/v2/all';
+const _endpointUrl = 'https://restcountries.com/v2/all';
 
 class CountryProvider {
   BuiltList<Country>? _cache;
