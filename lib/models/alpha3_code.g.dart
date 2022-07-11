@@ -246,6 +246,7 @@ const Alpha3Code _$UKR = const Alpha3Code._('UKR');
 const Alpha3Code _$ARE = const Alpha3Code._('ARE');
 const Alpha3Code _$GBR = const Alpha3Code._('GBR');
 const Alpha3Code _$USA = const Alpha3Code._('USA');
+const Alpha3Code _$UNK = const Alpha3Code._('UNK');
 const Alpha3Code _$URY = const Alpha3Code._('URY');
 const Alpha3Code _$UZB = const Alpha3Code._('UZB');
 const Alpha3Code _$VUT = const Alpha3Code._('VUT');
@@ -739,6 +740,8 @@ Alpha3Code _$valueOf(String name) {
       return _$GBR;
     case 'USA':
       return _$USA;
+    case 'UNK':
+      return _$UNK;
     case 'URY':
       return _$URY;
     case 'UZB':
@@ -1006,6 +1009,7 @@ final BuiltSet<Alpha3Code> _$values =
   _$ARE,
   _$GBR,
   _$USA,
+  _$UNK,
   _$URY,
   _$UZB,
   _$VUT,

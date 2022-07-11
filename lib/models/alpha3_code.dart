@@ -251,6 +251,7 @@ class Alpha3Code extends EnumClass {
   static const Alpha3Code ARE = _$ARE;
   static const Alpha3Code GBR = _$GBR;
   static const Alpha3Code USA = _$USA;
+  static const Alpha3Code UNK = _$UNK;
   static const Alpha3Code URY = _$URY;
   static const Alpha3Code UZB = _$UZB;
   static const Alpha3Code VUT = _$VUT;
