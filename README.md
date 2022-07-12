@@ -25,7 +25,7 @@ Full list of available functions can be found [here](lib/country_provider.dart)
 
 ### Internationalization
 
-The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa']`.
+The supported languages are `['de', 'es', 'fr', 'ja', 'it', 'br', 'pt', 'nl', 'hr', 'fa','hu]`.
 
 ```dart2
 getCountryByName(name: 'Koweït', lang: 'fr')

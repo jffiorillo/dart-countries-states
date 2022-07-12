@@ -45,29 +45,29 @@ class _$RegionalBlocsSerializer implements StructuredSerializer<RegionalBlocs> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'acronym':
           result.acronym = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'name':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'otherAcronyms':
           result.otherAcronyms.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'otherNames':
           result.otherNames.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -87,7 +87,7 @@ class _$RegionalBlocs extends RegionalBlocs {
   final BuiltList<String> otherNames;
 
   factory _$RegionalBlocs([void Function(RegionalBlocsBuilder)? updates]) =>
-      (new RegionalBlocsBuilder()..update(updates)).build();
+      (new RegionalBlocsBuilder()..update(updates))._build();
 
   _$RegionalBlocs._(
       {required this.acronym,
@@ -95,12 +95,12 @@ class _$RegionalBlocs extends RegionalBlocs {
       required this.otherAcronyms,
       required this.otherNames})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(acronym, 'RegionalBlocs', 'acronym');
-    BuiltValueNullFieldError.checkNotNull(name, 'RegionalBlocs', 'name');
+    BuiltValueNullFieldError.checkNotNull(acronym, r'RegionalBlocs', 'acronym');
+    BuiltValueNullFieldError.checkNotNull(name, r'RegionalBlocs', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        otherAcronyms, 'RegionalBlocs', 'otherAcronyms');
+        otherAcronyms, r'RegionalBlocs', 'otherAcronyms');
     BuiltValueNullFieldError.checkNotNull(
-        otherNames, 'RegionalBlocs', 'otherNames');
+        otherNames, r'RegionalBlocs', 'otherNames');
   }
 
   @override
@@ -130,7 +130,7 @@ class _$RegionalBlocs extends RegionalBlocs {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('RegionalBlocs')
+    return (newBuiltValueToStringHelper(r'RegionalBlocs')
           ..add('acronym', acronym)
           ..add('name', name)
           ..add('otherAcronyms', otherAcronyms)
@@ -189,15 +189,17 @@ class RegionalBlocsBuilder
   }
 
   @override
-  _$RegionalBlocs build() {
+  RegionalBlocs build() => _build();
+
+  _$RegionalBlocs _build() {
     _$RegionalBlocs _$result;
     try {
       _$result = _$v ??
           new _$RegionalBlocs._(
               acronym: BuiltValueNullFieldError.checkNotNull(
-                  acronym, 'RegionalBlocs', 'acronym'),
+                  acronym, r'RegionalBlocs', 'acronym'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, 'RegionalBlocs', 'name'),
+                  name, r'RegionalBlocs', 'name'),
               otherAcronyms: otherAcronyms.build(),
               otherNames: otherNames.build());
     } catch (_) {
@@ -209,7 +211,7 @@ class RegionalBlocsBuilder
         otherNames.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'RegionalBlocs', _$failedField, e.toString());
+            r'RegionalBlocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -218,4 +220,4 @@ class RegionalBlocsBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

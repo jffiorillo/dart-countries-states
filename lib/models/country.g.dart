@@ -206,105 +206,105 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'topLevelDomain':
           result.topLevelDomain.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'alpha2Code':
           result.alpha2Code = serializers.deserialize(value,
-              specifiedType: const FullType(Alpha2Code)) as Alpha2Code;
+              specifiedType: const FullType(Alpha2Code)) as Alpha2Code?;
           break;
         case 'alpha3Code':
           result.alpha3Code = serializers.deserialize(value,
-              specifiedType: const FullType(Alpha3Code)) as Alpha3Code;
+              specifiedType: const FullType(Alpha3Code)) as Alpha3Code?;
           break;
         case 'callingCodes':
           result.callingCodes.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'capital':
           result.capital = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'altSpellings':
           result.altSpellings.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'region':
           result.region = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'subregion':
           result.subregion = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'population':
           result.population = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'latlng':
           result.latlng.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(double)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'demonym':
           result.demonym = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'area':
           result.area = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'gini':
           result.gini = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'timezones':
           result.timezones.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'borders':
           result.borders.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'nativeName':
           result.nativeName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'numericCode':
           result.numericCode = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'currencies':
           result.currencies.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(Currencies)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'languages':
           result.languages.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(Languages)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'translations':
           result.translations.replace(serializers.deserialize(value,
@@ -315,17 +315,17 @@ class _$CountrySerializer implements StructuredSerializer<Country> {
           break;
         case 'flag':
           result.flag = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'regionalBlocs':
           result.regionalBlocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(RegionalBlocs)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'cioc':
           result.cioc = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -385,7 +385,7 @@ class _$Country extends Country {
   final String? cioc;
 
   factory _$Country([void Function(CountryBuilder)? updates]) =>
-      (new CountryBuilder()..update(updates)).build();
+      (new CountryBuilder()..update(updates))._build();
 
   _$Country._(
       {this.name,
@@ -495,7 +495,7 @@ class _$Country extends Country {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Country')
+    return (newBuiltValueToStringHelper(r'Country')
           ..add('name', name)
           ..add('topLevelDomain', topLevelDomain)
           ..add('alpha2Code', alpha2Code)
@@ -687,7 +687,9 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   }
 
   @override
-  _$Country build() {
+  Country build() => _build();
+
+  _$Country _build() {
     _$Country _$result;
     try {
       _$result = _$v ??
@@ -747,7 +749,7 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
         _regionalBlocs?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'Country', _$failedField, e.toString());
+            r'Country', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -756,4 +758,4 @@ class CountryBuilder implements Builder<Country, CountryBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
